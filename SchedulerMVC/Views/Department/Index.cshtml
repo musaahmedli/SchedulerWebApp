@@ -1,0 +1,37 @@
+﻿@model DepartmentViewModel
+
+<style>
+    .grid-container{
+        display:grid;
+        grid-template-columns:auto auto auto;
+    }
+</style>
+<div class="grid-container">
+    @foreach (var item in Model.Departments)
+    {
+        <div class="card float-left mr-3" style="width: 18rem;">
+            <div class="card-img-top" style="height:30%"><img class="card-img-top" src="~/css/img/cloud-scheduling.png" alt="Card image cap"></div>
+            <div class="card-body">
+                <h5 class="card-title">@item.Name</h5>
+                @if (@item.Organization== null)
+                {
+                    <p class="card-text">Ust qurum Yoxdur</p>
+                }
+                else
+                {
+                    <p class="card-text">Ust Qurum @item.Organization.Name</p>
+                }
+
+                <div class="btn-group">
+                    <button class="btn btn-warning text-decoration-none">@Html.ActionLink("Update", "UpdateForm", "Department", new { departmentId = item.DepartmentId })</button>
+                    <button class="btn btn-warning text-decoration-none">@Html.ActionLink("Delete", "Delete", "Department", new { departmentId = item.DepartmentId })</button>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+<div class="container form-group d-block">
+    <a asp-controller="Department" asp-action="AddForm" class=" btn btn-dark text-decoration-none">
+        Add Your Department
+    </a>
+</div>

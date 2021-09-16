@@ -1,0 +1,46 @@
+﻿@model SchedulerMVC.Models.ProjectModels.ProjectToUpdateViewModel
+
+
+@{
+    Layout = null;
+}
+
+
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+<link rel="stylesheet" href="~/lib/bootstrap" />
+<link rel="stylesheet" href="~/RegisterForm/regForm.css" />
+<div class="form-body">
+    <div class="row">
+        <div class="form-holder container">
+            <div class="form-content">
+                <div class="form-items">
+                    <h3>Update Project</h3>
+                    <p>Update Your Project Data</p>
+                    <form asp-controller="Project" asp-action="Update">
+
+                        <div class="col-md-12 invisible">
+                            <input class="form-control" type="text" asp-for="@Model.Project.ProjectId" >
+                        </div>
+
+                        <div class="col-md-12">
+                            <input class="form-control" type="text" asp-for="@Model.Project.Name">
+                        </div>
+
+                        <div class="col-md-12">
+                            <input class="form-control" type="text" asp-for="@Model.Project.Description" >
+                        </div>
+
+                        <div class="col-md-12">
+                            <input class="form-control" type="text" asp-for="@Model.Project.Attendances" >
+                        </div>
+
+                        <div class="form-button mt-3">
+                            <button id="submit" type="submit" class="btn btn-primary">I`m done</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

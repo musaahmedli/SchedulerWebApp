@@ -1,0 +1,7 @@
+﻿@model PositionToAddViewModel
+<form asp-controller="Position" asp-action="Add">
+    <div class="form-group">
+        <input type="text" class="form-control" asp-for="@Model.Position.Name" placeholder="Vezife Adi Daxil Edin">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>

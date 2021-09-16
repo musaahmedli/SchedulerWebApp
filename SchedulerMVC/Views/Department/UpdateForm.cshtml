@@ -1,0 +1,13 @@
+﻿@model DepartmentToUpdateViewModel
+<form asp-controller="Department" asp-action="Update">
+    <div class="form-group invisible">
+        <input type="text" class="form-control" asp-for="@Model.Department.DepartmentId">
+    </div>
+    <div class="form-group">
+        <input type="text" class="form-control" asp-for="@Model.Department.Name">
+    </div>
+    <div class="form-group">
+        <select class=" form-control form-select" asp-for="@Model.Department.OrganizationId" asp-items="@(new SelectList(Model.Organizations,"OrganizationId","Name"))"></select>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>

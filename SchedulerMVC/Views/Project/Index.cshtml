@@ -1,0 +1,62 @@
+﻿@model SchedulerMVC.Models.ProjectViewModel.ProjectViewModel
+
+@{ 
+    Layout = null;
+}
+
+
+<link rel="stylesheet" href="~/tableTemplate/table.css" />
+<link rel="stylesheet" href="~/lib/bootstrap" />
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+<div class="container text-center text-white">
+    <div class="row pt-5">
+        <div class="col-lg-8 mx-auto">
+            <h1 class="display-4">Projects</h1>
+            <p class="font-italic mb-0">Currnents</p>
+            <p class="font-italic">
+                Snippet by
+                <a class="text-white" href="https://bootstrapious.com/snippets">
+                    <u>Musa Ahmadov</u>
+                </a>
+            </p>
+        </div>
+    </div>
+</div>
+
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-7 mx-auto">
+            <div class="card rounded-0 border-0 shadow">
+                <div class="card-body p-5">
+
+                    <!--  Bootstrap table-->
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Description</th>
+                                    <th scope="col">Attendances</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach(var item in Model.Projects)
+                                    {
+                                        <tr>
+                                            <td>@item.Name</td>
+                                            <td>@item.Description</td>
+                                            <td>@item.Attendances</td>
+                                            <td><button class="btn btn-outline-primary">@Html.ActionLink("Update","UpdateForm","Project",new { projectId=item.ProjectId})</button></td>
+                                            <td><button class="btn btn-outline-primary">@Html.ActionLink("Delete", "Delete","Project",new { projectId=item.ProjectId})</button></td>
+                                        </tr>
+                                    }
+                            </tbody>
+                        </table>
+                    </div>
+
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

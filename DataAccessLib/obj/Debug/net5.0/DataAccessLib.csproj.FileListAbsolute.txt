@@ -1,0 +1,15 @@
+C:\Users\MonUser12\source\repos\SchedulerMVC\DataAccessLib\bin\Debug\net5.0\DataAccessLib.deps.json
+C:\Users\MonUser12\source\repos\SchedulerMVC\DataAccessLib\bin\Debug\net5.0\DataAccessLib.dll
+C:\Users\MonUser12\source\repos\SchedulerMVC\DataAccessLib\bin\Debug\net5.0\ref\DataAccessLib.dll
+C:\Users\MonUser12\source\repos\SchedulerMVC\DataAccessLib\bin\Debug\net5.0\DataAccessLib.pdb
+C:\Users\MonUser12\source\repos\SchedulerMVC\DataAccessLib\bin\Debug\net5.0\EntityLib.dll
+C:\Users\MonUser12\source\repos\SchedulerMVC\DataAccessLib\bin\Debug\net5.0\EntityLib.pdb
+C:\Users\MonUser12\source\repos\SchedulerMVC\DataAccessLib\obj\Debug\net5.0\DataAccessLib.csproj.AssemblyReference.cache
+C:\Users\MonUser12\source\repos\SchedulerMVC\DataAccessLib\obj\Debug\net5.0\DataAccessLib.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\MonUser12\source\repos\SchedulerMVC\DataAccessLib\obj\Debug\net5.0\DataAccessLib.AssemblyInfoInputs.cache
+C:\Users\MonUser12\source\repos\SchedulerMVC\DataAccessLib\obj\Debug\net5.0\DataAccessLib.AssemblyInfo.cs
+C:\Users\MonUser12\source\repos\SchedulerMVC\DataAccessLib\obj\Debug\net5.0\DataAccessLib.csproj.CoreCompileInputs.cache
+C:\Users\MonUser12\source\repos\SchedulerMVC\DataAccessLib\obj\Debug\net5.0\DataAccessLib.csproj.CopyComplete
+C:\Users\MonUser12\source\repos\SchedulerMVC\DataAccessLib\obj\Debug\net5.0\DataAccessLib.dll
+C:\Users\MonUser12\source\repos\SchedulerMVC\DataAccessLib\obj\Debug\net5.0\ref\DataAccessLib.dll
+C:\Users\MonUser12\source\repos\SchedulerMVC\DataAccessLib\obj\Debug\net5.0\DataAccessLib.pdb

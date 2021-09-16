@@ -1,0 +1,11 @@
+﻿@model SectorToAddViewModel
+
+<form asp-controller="Sector" asp-action="Add">
+    <div class="form-group">
+        <input type="text" class="form-control" asp-for="@Model.Sector.Name" placeholder="Sector Adi Daxil Edin">
+    </div>
+    <div class="form-group">
+        <select class=" form-control form-select" asp-for="@Model.Sector.DepartmentId" asp-items="@(new SelectList(Model.Departments,"DepartmentId","Name"))"></select>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>

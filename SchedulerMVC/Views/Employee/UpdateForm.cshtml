@@ -1,0 +1,35 @@
+﻿@model EmployeeToUpdateViewModel
+
+<link rel="stylesheet" href="~/css/form.css" />
+<div class="main-block">
+    <div class="left-part">
+        <i class="fas fa-graduation-cap"></i>
+        <h1>Register</h1>
+        <p>Tehlukesiz bir site tecrubesi By Musa Ahmadov</p>
+        <div class="btn-group">
+            <a class="btn-item" href="https://www.w3docs.com/learn-html.html">Musa</a>
+            <a class="btn-item" href="https://www.w3docs.com/quiz/#">Ahmadov</a>
+        </div>
+    </div>
+    <form asp-controller="Employee" asp-action="Update" enctype="multipart/form-data">
+        <div class="title">
+            <i class="fas fa-pencil-alt"></i>
+            <h2>Update Account</h2>
+        </div>
+        <div class="info">
+            <input class="fname invisible" asp-for="@Model.Employee.EmployeeId" type="text" >
+            <input class="fname" asp-for="@Model.Employee.Name" type="text" placeholder="Adi">
+            <input type="text" asp-for="@Model.Employee.Surname" placeholder="Soyadi">
+            <input type="text" asp-for="@Model.Employee.Username" placeholder="Istifadeci Adi">
+            <input type="password" asp-for="@Model.Employee.Password" >
+            <input type="email" asp-for="@Model.Employee.EMail" placeholder="example@free.com">
+            <input type="text" asp-for="@Model.Employee.PhoneNumber" placeholder="Elaqe Nomresi">
+            <input type="file" asp-for="@Model.Employee.Image" >
+            <select asp-for="@Model.Employee.SectorId" asp-items="@(new SelectList(Model.Sectors,"SectorId","Name"))">
+            </select>
+            <select asp-for="@Model.Employee.PositionId" asp-items="@(new SelectList(Model.Positions,"PositionId","Name"))">
+            </select>
+        </div>
+        <button type="submit">Submit</button>
+    </form>
+</div>

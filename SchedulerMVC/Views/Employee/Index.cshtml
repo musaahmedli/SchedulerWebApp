@@ -1,0 +1,83 @@
+﻿@model EmployeeViewModel
+@{ 
+    Layout = null;
+}
+<style>
+    .grid-container {
+        display: grid;
+        grid-template-columns: auto auto auto;
+    }
+
+    #buttonfixed{
+        position:fixed;
+        bottom:3rem;
+        right:3rem;
+    }
+</style>
+<link rel="stylesheet" href="~/lib/bootstrap" />
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+<link rel="stylesheet" href="~/CardTemplate/card.css" />
+<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+<div class="grid-container">
+    @foreach (var item in Model.Employees)
+    {
+    <div class="container">
+        <div class="card">
+            <div class="box" >
+                <div class="content">
+                    <h2>@item.EmployeeId</h2>
+                    <h3>@item.Name @item.Surname</h3>
+                    <h3>@item.Sector.Name</h3>
+                    <p>@item.Sector.Department.Organization.Name @item.Sector.Department.Name @item.Position.Name</p>
+                    <a href="#" >@item.EMail</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    }
+</div>
+<div id="buttonfixed">
+    <a asp-controller="Employee" asp-action="AddForm" class="btn btn-dark">
+        <p>
+            Add New Employee
+        </p>
+    </a>
+</div>
+
+@*<div class="card float-left mr-3" style="width: 18rem;">
+    <img class="card-img-top" style="width:auto;height:12rem" src="~/images/@item.ImagePath" alt="Card image cap">
+    <div class="card-body">
+        <h5 class="card-title text-capitalize">@item.Name @item.Surname</h5>
+        @if (@item.Sector == null)
+        {
+            <p class="card-text">Sektora bagli deyil </p>
+        }
+        else if (@item.Sector.Department == null)
+        {
+            <p class="card-text">@item.Sector.Name</p>
+            <p class="card-text">Departmente bagli deyil</p>
+        }
+        else if (@item.Sector.Department.Organization == null)
+        {
+            <p class="card-text">@item.Sector.Name</p>
+            <p class="card-text">@item.Sector.Department.Name</p>
+            <p class="card-text">Departmente bagli deyil</p>
+        }
+        else
+        {
+            <p class="card-text">Email: @item.EMail</p>
+            <p class="card-text">Telefon: @item.PhoneNumber</p>
+            <p class="card-text">Istifadeci Adi: @item.Username</p>
+            <p class="card-text">Vezife: @item.Position.Name</p>
+            <p class="card-text">Sektor: @item.Sector.Name</p>
+            <p class="card-text">Department: @item.Sector.Department.Name</p>
+            <p class="card-text">Organizasiya: @item.Sector.Department.Organization.Name</p>
+        }
+
+        <div class="btn-group">
+            <button class="btn btn-warning text-decoration-none">@Html.ActionLink("Update", "UpdateForm", "Employee", new { employeeId = item.EmployeeId })</button>
+            <button class="btn btn-warning text-decoration-none">@Html.ActionLink("Delete", "Delete", "Employee", new { employeeId = item.EmployeeId })</button>
+        </div>
+    </div>
+</div>*@
+

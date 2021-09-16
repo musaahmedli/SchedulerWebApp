@@ -1,0 +1,59 @@
+﻿@model OrganizationViewModel
+
+<div class="container form-group d-block overflow-auto flex-md-row">
+    @foreach (var item in Model.Organizations)
+    {
+        <div class="card float-left mr-3" style="width: 18rem;">
+            <img class="card-img-top" src="~/css/img/cloud-scheduling.png" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">@item.Name</h5>
+                @if (@item.ParentOrganization == null)
+                {
+                    <p class="card-text">Ust qurum Yoxdur</p>
+                }
+                else
+                {
+                    <p class="card-text">Ust Qurum @item.ParentOrganization.Name</p>
+                }
+
+                <div class="btn-group">
+                    <button class="btn btn-warning text-decoration-none">@Html.ActionLink("Update", "UpdateForm", "Organization", new { organizationId = item.OrganizationId })</button>
+                    <button class="btn btn-warning text-decoration-none">@Html.ActionLink("Delete", "Delete", "Organization", new { organizationId = item.OrganizationId })</button>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+<div class="container form-group d-block"><a asp-controller="Organization" asp-action="AddForm" class=" btn btn-dark text-decoration-none">
+    Add Your Organization
+</a></div>
+
+
+@*<table class="table table-striped table-dark">
+        <thead>
+            <tr >
+                <td scope="col">Organization</td>
+                <td scope="col">Parent Organization</td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Organizations)
+            {
+            <tr>
+                <td>@item.Name</td>
+                @if (item.ParentOrganization == null)
+                {
+                    <td>Yoxdur</td>
+                }
+                else
+                {
+                    <td>@item.ParentOrganization.Name</td>
+                }
+                <td><button class="btn btn-dark ">@Html.ActionLink("Update","UpdateForm","Organization",new { organizationId=item.OrganizationId})</button></td>
+                <td><button class="btn btn-dark ">@Html.ActionLink("Delete","Delete","Organization",new { organizationId=item.OrganizationId})</button></td>
+            </tr>
+            }
+        </tbody>
+    </table>*@
+
+
