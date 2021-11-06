@@ -32,7 +32,8 @@ namespace BusinessLogicLib.Services
 
         public async Task<List<DepartmentToListDTO>> Get()
         {
-            return _mapper.Map<List<DepartmentToListDTO>>(await _repo.Get());
+            List<DepartmentToListDTO> list = _mapper.Map<List<DepartmentToListDTO>>(await _repo.Get());
+            return list;
         }
 
         public async Task<DepartmentToListDTO> GetById(int departmentId)
@@ -40,9 +41,10 @@ namespace BusinessLogicLib.Services
             return _mapper.Map<DepartmentToListDTO>(await _repo.GetById(departmentId));
         }
 
-        public async Task<List<DepartmentToListDTO>> GetDeleteds()
+        public async Task<List<DepartmentToListDTO>> GetDepartmentsByOrganization(int organizationId)
         {
-            return _mapper.Map<List<DepartmentToListDTO>>(await _repo.GetDeleteds());
+            List<DepartmentToListDTO> departments = _mapper.Map<List<DepartmentToListDTO>>(await _repo.GetDepartmentsByOrganizationId(organizationId));
+            return departments;
         }
 
         public void Update(DepartmentToUpdateDTO department)

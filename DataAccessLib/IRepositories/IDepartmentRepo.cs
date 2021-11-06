@@ -15,6 +15,6 @@ namespace DataAccessLib.IRepositories
         Task<Department> GetById(int departmentId);
         Task Delete(int departmentId);
         void Update(Department department);
-        Task<List<Department>> GetDeleteds();
+        Task<List<Department>> GetDepartmentsByOrganizationId(int organizationId);
     }
 }

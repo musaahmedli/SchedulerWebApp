@@ -1,23 +1,42 @@
-﻿@model PositionViewModel
-<div class="container"><h2 class="text-center text-dark text">Vezifeler</h2></div>
+﻿@model SchedulerMVC.Models.PositionModels.PositionViewModel
 
-<div class="container form-group d-block overflow-auto flex-md-row">
-    @foreach (var item in Model.Positions)
+<style>
+    body {
+        background: #ffffff;
+    }
+</style>
+
+
+<link rel="stylesheet" href="~/lib/bootstrap" />
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+<div class="container">
+    <table class="table table-bordered">
+        <thead >
+            <tr>
+                <th class="col-6">Vəzifə</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Positions)
+            {
+                <tr>
+                    <td>@item.Name</td>
+                    @if (Model.Authorization == "true")
+                    {
+                        <td><button class="btn btn-dark">@Html.ActionLink("Yeniləyin", "UpdateForm", "Position", new { positionId = item.PositionId })</button></td>
+                        <td><button class="btn btn-dark">@Html.ActionLink("Silin", "Delete", "Position", new { positionId = item.PositionId })</button></td>
+                    }
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    @if (Model.Authorization == "true")
     {
-        <div class="card float-left mr-3" style="width: 18rem;">
-            <img class="card-img-top" src="~/css/img/cloud-scheduling.png" alt="Card image cap">
-            <div class="card-body">
-                <h5 class="card-title">@item.Name</h5>
-                <div class="btn-group">
-                    <button class="btn btn-warning text-decoration-none">@Html.ActionLink("Update", "UpdateForm", "Position", new { organizationId = item.PositionId })</button>
-                    <button class="btn btn-warning text-decoration-none">@Html.ActionLink("Delete", "Delete", "Position", new { organizationId = item.PositionId })</button>
-                </div>
-            </div>
+        <div class="container form-group d-block">
+            <a asp-controller="Position" asp-action="AddForm" class="btn btn-dark ">
+                Yeni Vəzifə Əlavə edin
+            </a>
         </div>
     }
-</div>
-<div class="container form-group d-block">
-    <a asp-controller="Position" asp-action="AddForm" class=" btn btn-dark text-decoration-none">
-        Add New Position
-    </a>
 </div>

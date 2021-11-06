@@ -1,7 +1,6 @@
 ﻿@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700;900&display=swap');
 
 *, body {
-    font-family: 'Poppins', sans-serif;
     font-weight: 400;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
@@ -11,7 +10,7 @@
 html, body {
     height: 100%;
     background-color: #152733;
-    overflow: hidden;
+    overflow: auto;
 }
 
 

@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\MonUser12\\source\\repos\\SchedulerMVC\\DataAccessLib\\DataAccessLib.csproj": {}
+    "C:\\Users\\adnsu\\Desktop\\SchedulerMVC\\DataAccessLib\\DataAccessLib.csproj": {}
   },
   "projects": {
-    "C:\\Users\\MonUser12\\source\\repos\\SchedulerMVC\\DataAccessLib\\DataAccessLib.csproj": {
+    "C:\\Users\\adnsu\\Desktop\\SchedulerMVC\\DataAccessLib\\DataAccessLib.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\MonUser12\\source\\repos\\SchedulerMVC\\DataAccessLib\\DataAccessLib.csproj",
+        "projectUniqueName": "C:\\Users\\adnsu\\Desktop\\SchedulerMVC\\DataAccessLib\\DataAccessLib.csproj",
         "projectName": "DataAccessLib",
-        "projectPath": "C:\\Users\\MonUser12\\source\\repos\\SchedulerMVC\\DataAccessLib\\DataAccessLib.csproj",
-        "packagesPath": "C:\\Users\\MonUser12\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\MonUser12\\source\\repos\\SchedulerMVC\\DataAccessLib\\obj\\",
+        "projectPath": "C:\\Users\\adnsu\\Desktop\\SchedulerMVC\\DataAccessLib\\DataAccessLib.csproj",
+        "packagesPath": "C:\\Users\\adnsu\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\adnsu\\Desktop\\SchedulerMVC\\DataAccessLib\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\MonUser12\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\adnsu\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -28,8 +28,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\MonUser12\\source\\repos\\SchedulerMVC\\EntityLib\\EntityLib.csproj": {
-                "projectPath": "C:\\Users\\MonUser12\\source\\repos\\SchedulerMVC\\EntityLib\\EntityLib.csproj"
+              "C:\\Users\\adnsu\\Desktop\\SchedulerMVC\\EntityLib\\EntityLib.csproj": {
+                "projectPath": "C:\\Users\\adnsu\\Desktop\\SchedulerMVC\\EntityLib\\EntityLib.csproj"
               }
             }
           }
@@ -76,21 +76,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\MonUser12\\source\\repos\\SchedulerMVC\\EntityLib\\EntityLib.csproj": {
+    "C:\\Users\\adnsu\\Desktop\\SchedulerMVC\\EntityLib\\EntityLib.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\MonUser12\\source\\repos\\SchedulerMVC\\EntityLib\\EntityLib.csproj",
+        "projectUniqueName": "C:\\Users\\adnsu\\Desktop\\SchedulerMVC\\EntityLib\\EntityLib.csproj",
         "projectName": "EntityLib",
-        "projectPath": "C:\\Users\\MonUser12\\source\\repos\\SchedulerMVC\\EntityLib\\EntityLib.csproj",
-        "packagesPath": "C:\\Users\\MonUser12\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\MonUser12\\source\\repos\\SchedulerMVC\\EntityLib\\obj\\",
+        "projectPath": "C:\\Users\\adnsu\\Desktop\\SchedulerMVC\\EntityLib\\EntityLib.csproj",
+        "packagesPath": "C:\\Users\\adnsu\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\adnsu\\Desktop\\SchedulerMVC\\EntityLib\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\MonUser12\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\adnsu\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -136,7 +136,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
         }
       }
     }

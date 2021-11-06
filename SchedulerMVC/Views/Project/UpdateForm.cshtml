@@ -1,41 +1,45 @@
 ﻿@model SchedulerMVC.Models.ProjectModels.ProjectToUpdateViewModel
-
-
-@{
-    Layout = null;
-}
-
-
 <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
 <link rel="stylesheet" href="~/lib/bootstrap" />
 <link rel="stylesheet" href="~/RegisterForm/regForm.css" />
+<link rel="stylesheet" href="~/fonts/font.css" />
+
 <div class="form-body">
     <div class="row">
         <div class="form-holder container">
             <div class="form-content">
                 <div class="form-items">
-                    <h3>Update Project</h3>
-                    <p>Update Your Project Data</p>
+                    <h3>
+                        Layihəni Yeniləyin
+                    </h3>
+                    <p>
+                        Layihə məlumatlarınızı yeniləyin
+                    </p>
                     <form asp-controller="Project" asp-action="Update">
 
-                        <div class="col-md-12 invisible">
-                            <input class="form-control" type="text" asp-for="@Model.Project.ProjectId" >
+                        <div class="col-md-12 d-none">
+                            <input class="form-control" type="text" asp-for="@Model.Project.ProjectId">
                         </div>
 
                         <div class="col-md-12">
+                            <label>Ad</label>
                             <input class="form-control" type="text" asp-for="@Model.Project.Name">
                         </div>
 
                         <div class="col-md-12">
-                            <input class="form-control" type="text" asp-for="@Model.Project.Description" >
+                            <label>Təsvir</label>
+                            <input class="form-control" type="text" asp-for="@Model.Project.Description">
                         </div>
 
                         <div class="col-md-12">
-                            <input class="form-control" type="text" asp-for="@Model.Project.Attendances" >
+                            <label>İştirakçılar</label>
+                            <input class="form-control" type="text" asp-for="@Model.Project.Attendances">
                         </div>
 
                         <div class="form-button mt-3">
-                            <button id="submit" type="submit" class="btn btn-primary">I`m done</button>
+                            <button id="submit" type="submit" class="btn btn-primary">
+                                Təsdiq edin
+                            </button>
                         </div>
                     </form>
                 </div>

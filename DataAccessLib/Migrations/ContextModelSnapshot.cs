@@ -93,6 +93,22 @@ namespace DataAccessLib.Migrations
                     b.HasIndex("OrganizationId");
 
                     b.ToTable("Departments");
+
+                    b.HasData(
+                        new
+                        {
+                            DepartmentId = 1,
+                            IsDeleted = false,
+                            Name = "Layihələrin idarə edilməsi",
+                            OrganizationId = 1
+                        },
+                        new
+                        {
+                            DepartmentId = 2,
+                            IsDeleted = false,
+                            Name = "Proqram təminatının hazırlanması",
+                            OrganizationId = 2
+                        });
                 });
 
             modelBuilder.Entity("EntityLib.Employee", b =>
@@ -147,7 +163,26 @@ namespace DataAccessLib.Migrations
 
                     b.HasIndex("SectorId");
 
+                    b.HasIndex("Username")
+                        .IsUnique();
+
                     b.ToTable("Employees");
+
+                    b.HasData(
+                        new
+                        {
+                            EmployeeId = 1,
+                            Email = "adnsu.musa@mail.ru",
+                            IsAdmin = true,
+                            IsDeleted = false,
+                            Name = "Musa",
+                            Password = "5af93949ba1dd001c7ae02b0c15f15ba332a56437fb58e90a2b6d2b0f59286b3",
+                            PhoneNumber = "+994703040404",
+                            PositionId = 5,
+                            SectorId = 1,
+                            Surname = "Ahmadov",
+                            Username = "musaahmedli"
+                        });
                 });
 
             modelBuilder.Entity("EntityLib.EmployeeMeeting", b =>
@@ -179,17 +214,14 @@ namespace DataAccessLib.Migrations
                         .HasColumnType("integer")
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
-                    b.Property<int>("Day")
-                        .HasColumnType("integer");
-
-                    b.Property<int>("DayId")
-                        .HasColumnType("integer");
-
                     b.Property<DateTime>("EndTime")
                         .HasColumnType("timestamp without time zone");
 
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("boolean");
+
+                    b.Property<int>("MeetingDaysId")
+                        .HasColumnType("integer");
 
                     b.Property<int>("ProjectId")
                         .HasColumnType("integer");
@@ -198,13 +230,59 @@ namespace DataAccessLib.Migrations
                         .HasColumnType("timestamp without time zone");
 
                     b.Property<string>("Subject")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.HasKey("MeetingId");
 
+                    b.HasIndex("MeetingDaysId");
+
                     b.HasIndex("ProjectId");
 
                     b.ToTable("Meetings");
+                });
+
+            modelBuilder.Entity("EntityLib.MeetingDays", b =>
+                {
+                    b.Property<int>("MeetingDaysId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
+
+                    b.Property<int>("DayId")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("MeetingWeekId")
+                        .HasColumnType("integer");
+
+                    b.HasKey("MeetingDaysId");
+
+                    b.HasIndex("DayId");
+
+                    b.HasIndex("MeetingWeekId");
+
+                    b.ToTable("MeetingDays");
+                });
+
+            modelBuilder.Entity("EntityLib.MeetingWeek", b =>
+                {
+                    b.Property<int>("MeetingWeekId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
+
+                    b.Property<DateTime>("EndDate")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("boolean");
+
+                    b.Property<DateTime>("StartDate")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.HasKey("MeetingWeekId");
+
+                    b.ToTable("MeetingWeeks");
                 });
 
             modelBuilder.Entity("EntityLib.Organization", b =>
@@ -229,6 +307,26 @@ namespace DataAccessLib.Migrations
                     b.HasIndex("ParentOrganizationId");
 
                     b.ToTable("Organizations");
+
+                    b.HasData(
+                        new
+                        {
+                            OrganizationId = 1,
+                            IsDeleted = false,
+                            Name = "İqtisadiyyat Nazirliyi"
+                        },
+                        new
+                        {
+                            OrganizationId = 2,
+                            IsDeleted = false,
+                            Name = "Əmlak Məsələləri Dövlət Xidməti"
+                        },
+                        new
+                        {
+                            OrganizationId = 3,
+                            IsDeleted = false,
+                            Name = "Maliyyə Nazirliyi"
+                        });
                 });
 
             modelBuilder.Entity("EntityLib.Position", b =>
@@ -247,6 +345,38 @@ namespace DataAccessLib.Migrations
                     b.HasKey("PositionId");
 
                     b.ToTable("Positions");
+
+                    b.HasData(
+                        new
+                        {
+                            PositionId = 1,
+                            IsDeleted = false,
+                            Name = "Direktor"
+                        },
+                        new
+                        {
+                            PositionId = 2,
+                            IsDeleted = false,
+                            Name = "Direktor müavini"
+                        },
+                        new
+                        {
+                            PositionId = 3,
+                            IsDeleted = false,
+                            Name = "Şöbə müdiri"
+                        },
+                        new
+                        {
+                            PositionId = 4,
+                            IsDeleted = false,
+                            Name = "Sektor müdiri"
+                        },
+                        new
+                        {
+                            PositionId = 5,
+                            IsDeleted = false,
+                            Name = "Aparıcı proqramçı mühəndis"
+                        });
                 });
 
             modelBuilder.Entity("EntityLib.Project", b =>
@@ -274,6 +404,17 @@ namespace DataAccessLib.Migrations
                     b.HasKey("ProjectId");
 
                     b.ToTable("Projects");
+
+                    b.HasData(
+                        new
+                        {
+                            ProjectId = 1,
+                            Attendances = 252,
+                            CreatedDate = new DateTime(2021, 11, 6, 13, 6, 11, 830, DateTimeKind.Local).AddTicks(4637),
+                            Description = "Veb sayt",
+                            IsDeleted = false,
+                            Name = "Coğrafi informasiya sistemi ilə xəritənin yaradılması"
+                        });
                 });
 
             modelBuilder.Entity("EntityLib.Sector", b =>
@@ -298,6 +439,29 @@ namespace DataAccessLib.Migrations
                     b.HasIndex("DepartmentId");
 
                     b.ToTable("Sectors");
+
+                    b.HasData(
+                        new
+                        {
+                            SectorId = 1,
+                            DepartmentId = 2,
+                            IsDeleted = false,
+                            Name = "Backend"
+                        },
+                        new
+                        {
+                            SectorId = 2,
+                            DepartmentId = 2,
+                            IsDeleted = false,
+                            Name = "Frontend"
+                        },
+                        new
+                        {
+                            SectorId = 3,
+                            DepartmentId = 1,
+                            IsDeleted = false,
+                            Name = "Analiz"
+                        });
                 });
 
             modelBuilder.Entity("EntityLib.Department", b =>
@@ -351,13 +515,40 @@ namespace DataAccessLib.Migrations
 
             modelBuilder.Entity("EntityLib.Meeting", b =>
                 {
+                    b.HasOne("EntityLib.MeetingDays", "MeetingDay")
+                        .WithMany()
+                        .HasForeignKey("MeetingDaysId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("EntityLib.Project", "Project")
                         .WithMany()
                         .HasForeignKey("ProjectId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.Navigation("MeetingDay");
+
                     b.Navigation("Project");
+                });
+
+            modelBuilder.Entity("EntityLib.MeetingDays", b =>
+                {
+                    b.HasOne("EntityLib.DaysOfWeek", "Days")
+                        .WithMany("MeetingDays")
+                        .HasForeignKey("DayId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("EntityLib.MeetingWeek", "MeetingWeek")
+                        .WithMany("MeetingDays")
+                        .HasForeignKey("MeetingWeekId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Days");
+
+                    b.Navigation("MeetingWeek");
                 });
 
             modelBuilder.Entity("EntityLib.Organization", b =>
@@ -380,6 +571,11 @@ namespace DataAccessLib.Migrations
                     b.Navigation("Department");
                 });
 
+            modelBuilder.Entity("EntityLib.DaysOfWeek", b =>
+                {
+                    b.Navigation("MeetingDays");
+                });
+
             modelBuilder.Entity("EntityLib.Employee", b =>
                 {
                     b.Navigation("EmployeeMeetings");
@@ -388,6 +584,11 @@ namespace DataAccessLib.Migrations
             modelBuilder.Entity("EntityLib.Meeting", b =>
                 {
                     b.Navigation("EmployeeMeetings");
+                });
+
+            modelBuilder.Entity("EntityLib.MeetingWeek", b =>
+                {
+                    b.Navigation("MeetingDays");
                 });
 #pragma warning restore 612, 618
         }

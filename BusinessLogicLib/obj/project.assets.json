@@ -1716,6 +1716,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
         "dependencies": {
+          "EntityLib": "1.0.0",
           "Microsoft.AspNetCore.Http": "2.2.2"
         },
         "compile": {
@@ -6107,19 +6108,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\MonUser12\\.nuget\\packages\\": {}
+    "C:\\Users\\adnsu\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\MonUser12\\source\\repos\\SchedulerMVC\\BusinessLogicLib\\BusinessLogicLib.csproj",
+      "projectUniqueName": "C:\\Users\\adnsu\\Desktop\\SchedulerMVC\\BusinessLogicLib\\BusinessLogicLib.csproj",
       "projectName": "BusinessLogicLib",
-      "projectPath": "C:\\Users\\MonUser12\\source\\repos\\SchedulerMVC\\BusinessLogicLib\\BusinessLogicLib.csproj",
-      "packagesPath": "C:\\Users\\MonUser12\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\MonUser12\\source\\repos\\SchedulerMVC\\BusinessLogicLib\\obj\\",
+      "projectPath": "C:\\Users\\adnsu\\Desktop\\SchedulerMVC\\BusinessLogicLib\\BusinessLogicLib.csproj",
+      "packagesPath": "C:\\Users\\adnsu\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\adnsu\\Desktop\\SchedulerMVC\\BusinessLogicLib\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\MonUser12\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\adnsu\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -6133,11 +6134,11 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "C:\\Users\\MonUser12\\source\\repos\\SchedulerMVC\\DataAccessLib\\DataAccessLib.csproj": {
-              "projectPath": "C:\\Users\\MonUser12\\source\\repos\\SchedulerMVC\\DataAccessLib\\DataAccessLib.csproj"
+            "C:\\Users\\adnsu\\Desktop\\SchedulerMVC\\DataAccessLib\\DataAccessLib.csproj": {
+              "projectPath": "C:\\Users\\adnsu\\Desktop\\SchedulerMVC\\DataAccessLib\\DataAccessLib.csproj"
             },
-            "C:\\Users\\MonUser12\\source\\repos\\SchedulerMVC\\DTO\\DTO.csproj": {
-              "projectPath": "C:\\Users\\MonUser12\\source\\repos\\SchedulerMVC\\DTO\\DTO.csproj"
+            "C:\\Users\\adnsu\\Desktop\\SchedulerMVC\\DTO\\DTO.csproj": {
+              "projectPath": "C:\\Users\\adnsu\\Desktop\\SchedulerMVC\\DTO\\DTO.csproj"
             }
           }
         }
@@ -6172,7 +6173,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
       }
     }
   }

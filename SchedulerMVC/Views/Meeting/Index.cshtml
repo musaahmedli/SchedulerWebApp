@@ -1,0 +1,36 @@
+﻿@model SchedulerMVC.Models.MeetingModels.MeetingViewModel
+
+<h1 class="text-center">Görüşlər</h1>
+<table class="table table-striped table-dark">
+    <thead>
+        <tr>
+            <th>
+                Görüş mövzusu
+            </th>
+            <th>
+                Görüşün Başlama Tarixi
+            </th>
+            <th>
+                Görüşün bitmə tarixi
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Meetings)
+        {
+            <tr>
+                <td>@item.Subject</td>
+                <td>@item.StartTime</td>
+                <td>@item.EndTime</td>
+                @if (Model.Authorization == "true")
+                {
+                    <td><button class="btn btn-light">@Html.ActionLink("Silin","Delete","Meeting",new { meetingId=item.MeetingId})</button></td>
+                    <td><button class="btn btn-light">@Html.ActionLink("Yeniləyin", "UpdateForm","Meeting",new { meetingId=item.MeetingId})</button></td>
+                    <td><button class="btn btn-light">@Html.ActionLink("Məlumat", "GetEmployeesOfMeeting","Employee",new { meetingId=item.MeetingId})</button></td>
+                }
+            </tr>
+        }
+    </tbody>
+</table>
+
+

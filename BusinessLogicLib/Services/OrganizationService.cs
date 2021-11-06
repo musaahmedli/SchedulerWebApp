@@ -44,9 +44,5 @@ namespace BusinessLogicLib.Services
         {
             _repo.Update(_mapper.Map<Organization>(organizationToUpdateDTO));
         }
-        public async Task<List<OrganizationToListDTO>> ShowDeletedOrganizations()
-        {
-            return _mapper.Map<List<OrganizationToListDTO>>(await _repo.ShowDeletedOrganizations());
-        }
     }
 }

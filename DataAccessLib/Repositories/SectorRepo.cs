@@ -32,17 +32,17 @@ namespace DataAccessLib.Repositories
 
         public async Task<List<Sector>> Get()
         {
-            return await _context.Sectors.Include(m => m.Department).ToListAsync();
+            return await _context.Sectors.ToListAsync();
         }
 
         public async Task<Sector> GetById(int sectorId)
         {
-            return await _context.Sectors.Include(m=>m.Department).Where(m=>m.SectorId==sectorId).FirstOrDefaultAsync();
+            return await _context.Sectors.Where(m=>m.SectorId==sectorId).FirstOrDefaultAsync();
         }
 
-        public async Task<List<Sector>> ShowDeletedOrganizations()
+        public async Task<List<Sector>> GetSectorsByDepartment(int deparmtentId)
         {
-            return await _context.Sectors.IgnoreQueryFilters().Where(m => m.IsDeleted).ToListAsync();
+            return await _context.Sectors.Where(m => m.DepartmentId == deparmtentId).ToListAsync();
         }
 
         public void Update(Sector sector)

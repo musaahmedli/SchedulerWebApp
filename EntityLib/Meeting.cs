@@ -12,16 +12,21 @@ namespace EntityLib
     {
         [Key]
         public int MeetingId { get; set; }
-        public string Subject{ get; set; }
-        [ForeignKey("Day")]
-        public int DayId { get; set; }
-        public virtual DayOfWeek Day{ get; set; }
+        [Required]
+        public string Subject { get; set; }
+        [Required]
         public DateTime StartTime { get; set; }
+        [Required]
         public DateTime EndTime { get; set; }
         public bool IsDeleted { get; set; }
         [ForeignKey("Project")]
         public int ProjectId { get; set; }
         public virtual Project Project { get; set; }
-        public virtual List<EmployeeMeeting> EmployeeMeetings{ get; set; }
+        [NotMapped]
+        [Required]
+        public  List<int> EmployeeIdList { get; set; }
+        public virtual List<EmployeeMeeting> EmployeeMeetings { get; set; }
+        public int MeetingDaysId { get; set; }
+        public virtual MeetingDays MeetingDay{get;set;}
     }
 }

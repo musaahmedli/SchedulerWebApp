@@ -1,18 +1,17 @@
 ﻿<!-- Main Sidebar Container -->
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="index3.html" class="brand-link">
+    <a  class="brand-link">
         <img src="~/AdminLTE/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-        <span class="brand-text font-weight-light">Scheduler App</span>
+        <span class="brand-text font-weight-light text-light">Scheduler App</span>
     </a>
 
     <!-- Sidebar -->
-    <div class="sidebar">
+    <div class="sidebar ">
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-            <div class="info btn-group">
-                <a asp-controller="Home" asp-action="LoginForm" class="d-inline btn btn-outline-dark">Daxil Ol</a>
-                <a asp-controller="Home" asp-action="RegisterForm" class="d-inline btn btn-outline-dark">Qeyd Ol</a>
+            <div class="info btn-group justify-content-center">
+                <a class="d-inline text-light text-center">Musa Əhmədov</a>
             </div>
         </div>
 
@@ -29,68 +28,68 @@
         </div>
 
         <!-- Sidebar Menu -->
-        <nav class="mt-2">
+        <nav class="mt-2 ">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 <!-- Add icons to the links using the .nav-icon class
-    with font-awesome or any other icon font library -->
+                with font-awesome or any other icon font library -->
                 <li class="nav-item">
                     <a asp-controller="Organization" asp-action="Index" class="nav-link">
-                        <i class="nav-icon fas fa-th"></i>
+                        <i class="nav-icon  fas fa-building"></i>
                         <p>
-                            Organizations
+                            Təşkilatlar
                         </p>
                     </a>
                 </li>
-                @*<ul class="nav nav-treeview">
-            <li class="nav-item">
-                <a href="#" class="nav-link active">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Active Page</p>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a href="#" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Inactive Page</p>
-                </a>
-            </li>
-        </ul>*@
-
                 <li class="nav-item">
                     <a asp-controller="Department" asp-action="Index" class="nav-link">
-                        <i class="nav-icon fas fa-th"></i>
+                        <i class="nav-icon fas fa-sitemap "></i>
                         <p>
-                            Departments
+                            Şöbələr
                         </p>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a asp-controller="Sector" asp-action="Index" class="nav-link">
-                        <i class="nav-icon fas fa-th"></i>
+                        <i class="nav-icon fas fa-vector-square"></i>
                         <p>
-                            Sectors
+                            Sektorlar
                         </p>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a asp-controller="Employee" asp-action="Index" class="nav-link">
-                        <i class="nav-icon fas fa-th"></i>
+                        <i class="nav-icon fas fa-briefcase"></i>
                         <p>
-                            Employees
+                            İşçilər
                         </p>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a asp-controller="Position" asp-action="Index" class="nav-link">
-                        <i class="nav-icon fas fa-th"></i>
+                        <i class="nav-icon fas fa-map-pin"></i>
                         <p>
-                            Positions
+                            Vəzifələr
                         </p>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a asp-controller="Project" asp-action="Index" class="nav-link">
+                        <i class="nav-icon fas fa-project-diagram"></i>
+                        <p>
+                            Layihələr
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item mb-5">
+                    <a asp-controller="MeetingDays" asp-action="Index" class="nav-link">
+                        <i class="nav-icon far fa-calendar"></i>
+                        <p>
+                            Həftəlik Cədvəl
+                        </p>
+                    </a>
+                </li>
+                
             </ul>
         </nav>
-        <!-- /.sidebar-menu -->
     </div>
-    <!-- /.sidebar -->
 </aside>

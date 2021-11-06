@@ -1,13 +1,44 @@
-﻿@model DepartmentToUpdateViewModel
-<form asp-controller="Department" asp-action="Update">
-    <div class="form-group invisible">
-        <input type="text" class="form-control" asp-for="@Model.Department.DepartmentId">
+﻿@model SchedulerMVC.Models.DepartmentModels.DepartmentToUpdateViewModel
+
+
+
+<link rel="stylesheet" href="~/lib/bootstrap" />
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+<link rel="stylesheet" href="~/RegisterForm/regForm.css" />
+
+<div class="form-body">
+    <div class="row">
+        <div class="form-holder container">
+            <div class="form-content">
+                <div class="form-items">
+                    <h3>
+                        Layihəni yeniləyin
+                    </h3>
+                    <p>
+                        Boşluqları doldurun.
+                    </p>
+                    <form asp-controller="Department" asp-action="Update">
+
+                        <div class="col-md-12 d-none">
+                            <input class="form-control" type="text" asp-for="@Model.Department.DepartmentId" required>
+                        </div>
+
+                        <div class="col-md-12">
+                            <input class="form-control" type="text" asp-for="@Model.Department.Name" required>
+                        </div>
+
+                        <div class="col-md-12">
+                            <select class=" form-control form-select" asp-for="@Model.Department.OrganizationId" asp-items="@(new SelectList(Model.Organizations,"OrganizationId","Name"))"></select>
+                        </div>
+
+                        <div class="form-button mt-3">
+                            <button id="submit" type="submit" class="btn btn-primary">
+                                Təsdiq edin
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="form-group">
-        <input type="text" class="form-control" asp-for="@Model.Department.Name">
-    </div>
-    <div class="form-group">
-        <select class=" form-control form-select" asp-for="@Model.Department.OrganizationId" asp-items="@(new SelectList(Model.Organizations,"OrganizationId","Name"))"></select>
-    </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
-</form>
+</div>

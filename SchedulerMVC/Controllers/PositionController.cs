@@ -1,8 +1,9 @@
 ﻿using AutoMapper;
 using BusinessLogicLib.IServices;
 using DTO.PositionDTOs;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using SchedulerMVC.Models;
+using SchedulerMVC.Models.PositionModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,6 +24,11 @@ namespace SchedulerMVC.Controllers
         public async Task<IActionResult> Index()
         {
             PositionViewModel positionViewModel = new PositionViewModel();
+            if (HttpContext.Session == null)
+            {
+                return BadRequest();
+            }
+            positionViewModel.Authorization = HttpContext.Session.GetString("Auth");
             positionViewModel.Positions = await _service.Get();
             return View(positionViewModel);
         }

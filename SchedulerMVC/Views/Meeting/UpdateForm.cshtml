@@ -1,0 +1,66 @@
+﻿@model SchedulerMVC.Models.MeetingModels.MeetingToUpdateViewModel
+
+
+<link rel="stylesheet" href="~/lib/bootstrap" />
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+<link rel="stylesheet" href="~/RegisterForm/regForm.css" />
+<link rel="stylesheet" href="~/fonts/font.css" />
+
+
+<div class="form-body">
+    <div class="row">
+        <div class="form-holder container">
+            <div class="form-content">
+                <div class="form-items">
+                    <h3>
+                        Görüşü Yeniləyin
+                    </h3>
+                    <p>
+                        Boşluqları doldurun
+                        .
+                    </p>
+                    <form asp-controller="Meeting" asp-action="Update">
+                        <div class="col-md-12 mb-1 d-none">
+                            <input class="form-control" type="text" asp-for="@Model.Meeting.MeetingId" required>
+                        </div>
+
+                        <div class="col-md-12 ">
+                            <label >Mövzu</label>
+                            <input class="form-control" type="text" asp-for="@Model.Meeting.Subject" required>
+                        </div>
+
+                        <div class="col-md-12 ">
+                            <label >
+                                Başlama vaxtı
+                            </label>
+                            <input class="form-control" type="time" asp-for="@Model.Meeting.StartTime" required>
+                        </div>
+
+                        <div class="col-md-12">
+                            <label >
+                                Bitmə vaxtı
+                            </label>
+                            <input class="form-control" type="time" asp-for="@Model.Meeting.EndTime" required>
+                        </div>
+
+                        <div class="col-md-12 ">
+                            <label >Layihə</label>
+                            <select class="form-select sel" asp-for="@Model.Meeting.ProjectId" asp-items="@(new SelectList(Model.Projects,"ProjectId","Name"))"></select>
+                        </div>
+
+                        <div class="col-md-12 ">
+                            <label >İşçilər</label>
+                            <select asp-for="@Model.Meeting.EmployeeIdList" asp-items="@(new MultiSelectList(Model.Employees,"EmployeeId","Name"))"></select>
+                        </div>
+
+                        <div class="form-button " style="margin-left:15px;margin-top:10px">
+                            <button id="submit" type="submit" class="btn btn-secondary">
+                                Təsdiq edin
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

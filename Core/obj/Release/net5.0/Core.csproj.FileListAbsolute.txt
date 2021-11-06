@@ -1,0 +1,17 @@
+C:\Users\MonUser12\source\repos\SchedulerMVC\Core\bin\Release\net5.0\Core.deps.json
+C:\Users\MonUser12\source\repos\SchedulerMVC\Core\bin\Release\net5.0\Core.dll
+C:\Users\MonUser12\source\repos\SchedulerMVC\Core\bin\Release\net5.0\ref\Core.dll
+C:\Users\MonUser12\source\repos\SchedulerMVC\Core\bin\Release\net5.0\Core.pdb
+C:\Users\MonUser12\source\repos\SchedulerMVC\Core\bin\Release\net5.0\DTO.dll
+C:\Users\MonUser12\source\repos\SchedulerMVC\Core\bin\Release\net5.0\EntityLib.dll
+C:\Users\MonUser12\source\repos\SchedulerMVC\Core\bin\Release\net5.0\DTO.pdb
+C:\Users\MonUser12\source\repos\SchedulerMVC\Core\bin\Release\net5.0\EntityLib.pdb
+C:\Users\MonUser12\source\repos\SchedulerMVC\Core\obj\Release\net5.0\Core.csproj.AssemblyReference.cache
+C:\Users\MonUser12\source\repos\SchedulerMVC\Core\obj\Release\net5.0\Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\MonUser12\source\repos\SchedulerMVC\Core\obj\Release\net5.0\Core.AssemblyInfoInputs.cache
+C:\Users\MonUser12\source\repos\SchedulerMVC\Core\obj\Release\net5.0\Core.AssemblyInfo.cs
+C:\Users\MonUser12\source\repos\SchedulerMVC\Core\obj\Release\net5.0\Core.csproj.CoreCompileInputs.cache
+C:\Users\MonUser12\source\repos\SchedulerMVC\Core\obj\Release\net5.0\Core.csproj.CopyComplete
+C:\Users\MonUser12\source\repos\SchedulerMVC\Core\obj\Release\net5.0\Core.dll
+C:\Users\MonUser12\source\repos\SchedulerMVC\Core\obj\Release\net5.0\ref\Core.dll
+C:\Users\MonUser12\source\repos\SchedulerMVC\Core\obj\Release\net5.0\Core.pdb

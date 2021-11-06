@@ -15,6 +15,5 @@ namespace DataAccessLib.IRepositories
         Task<Position> GetById(int positionId);
         Task Delete(int positionId);
         void Update(Position position);
-        Task<List<Position>> GetDeleteds();
     }
 }

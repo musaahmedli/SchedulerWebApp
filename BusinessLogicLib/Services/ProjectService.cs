@@ -40,11 +40,6 @@ namespace BusinessLogicLib.Services
             return _mapper.Map<ProjectToListDTO>(await _repo.GetById(projectId));
         }
 
-        public async Task<List<ProjectToListDTO>> GetDeleteds()
-        {
-            return _mapper.Map<List<ProjectToListDTO>>(await _repo.GetDeleteds()); 
-        }
-
         public void Update(ProjectToUpdateDTO project)
         {
             _repo.Update(_mapper.Map<Project>(project));

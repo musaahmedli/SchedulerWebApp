@@ -40,11 +40,6 @@ namespace DataAccessLib.Repositories
             return await _context.Projects.FindAsync(projectId);
         }
 
-        public async Task<List<Project>> GetDeleteds()
-        {
-            return await _context.Projects.IgnoreQueryFilters().Where(m => m.IsDeleted).ToListAsync();
-        }
-
         public void Update(Project project)
         {
             _context.Projects.Update(project);

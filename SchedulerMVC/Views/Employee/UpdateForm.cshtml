@@ -1,35 +1,100 @@
-﻿@model EmployeeToUpdateViewModel
+﻿@model SchedulerMVC.Models.EmployeeModels.EmployeeToUpdateViewModel
+<link rel="stylesheet" href="~/fonts/font.css" />
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+<link rel="stylesheet" href="~/lib/bootstrap" />
+<link rel="stylesheet" href="~/RegisterForm/regForm.css" />
 
-<link rel="stylesheet" href="~/css/form.css" />
-<div class="main-block">
-    <div class="left-part">
-        <i class="fas fa-graduation-cap"></i>
-        <h1>Register</h1>
-        <p>Tehlukesiz bir site tecrubesi By Musa Ahmadov</p>
-        <div class="btn-group">
-            <a class="btn-item" href="https://www.w3docs.com/learn-html.html">Musa</a>
-            <a class="btn-item" href="https://www.w3docs.com/quiz/#">Ahmadov</a>
+<style>
+    .form-control {
+        margin-top: -8px;
+    }
+
+
+    input[type="file"] {
+        display: none;
+    }
+
+    .custom-file-upload {
+        background-color: #072168;
+        border: 1px solid #ccc;
+        display: inline-block;
+        padding: 6px 12px;
+        cursor: pointer;
+    }
+</style>
+<div class="form-body">
+    <div class="row">
+        <div class="form-holder container">
+            <div class="form-content">
+                <div class="form-items">
+                    <h3>Yeniləyin</h3>
+                    <p>
+                        Boşluqları doldurun
+                    </p>
+                    <form asp-controller="Employee" asp-action="Update" enctype="multipart/form-data">
+
+                        <div class="col-md-12">
+                            <input class="form-control d-none " style="margin-top:-6px" type="text" asp-for="@Model.Employee.EmployeeId">
+                        </div>
+
+                        <div class="col-md-12">
+                            <label>Ad</label>
+                            <input class="form-control" style="margin-top:-6px" type="text" asp-for="@Model.Employee.Name" required>
+                        </div>
+
+                        <div class="col-md-12">
+                            <label>Soyad</label>
+
+                            <input class="form-control" style="margin-top:-6px" type="text" asp-for="@Model.Employee.Surname" required>
+                        </div>
+
+                        <div class="col-md-12">
+                            <label>EMail</label>
+
+                            <input class="form-control" style="margin-top:-6px" type="text" asp-for="@Model.Employee.EMail" required>
+                        </div>
+
+                        <div class="col-md-12">
+                            <label>
+                                İstifadəçi adı
+                            </label>
+
+                            <input class="form-control" style="margin-top:-6px" type="text" asp-for="@Model.Employee.Username" required>
+                        </div>
+
+                        <div class="col-md-12">
+                            <label>
+                                Telefon nömrəsi
+                            </label>
+
+                            <input class="form-control" style="margin-top:-6px" type="text" asp-for="@Model.Employee.PhoneNumber" required>
+                        </div>
+                        <div class="col-md-12 mt-2">
+                            <label class="custom-file-upload" style="margin-top:-6px">
+                                <input type="file" asp-for="@Model.Employee.Image" />
+                                Şəkil
+                            </label>
+                        </div>
+
+                        <div class="col-md-12 mt-2">
+                            <label>Sektor</label>
+
+                            <select class="form-select" style="margin-top:-6px" asp-for="@Model.Employee.SectorId" asp-items="@(new SelectList(Model.Sectors,"SectorId","Name"))"></select>
+                        </div>
+
+                        <div class="col-md-12">
+                            <label>Vəzifə</label>
+                            <select class="form-select" style="margin-top:-6px" asp-for="@Model.Employee.PositionId" asp-items="@(new SelectList(Model.Positions,"PositionId","Name"))"></select>
+                        </div>
+
+                        <div class="form-button mt-3">
+                            <button id="submit" type="submit" class="btn btn-secondary">
+                                Təsdiq edin
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
-    <form asp-controller="Employee" asp-action="Update" enctype="multipart/form-data">
-        <div class="title">
-            <i class="fas fa-pencil-alt"></i>
-            <h2>Update Account</h2>
-        </div>
-        <div class="info">
-            <input class="fname invisible" asp-for="@Model.Employee.EmployeeId" type="text" >
-            <input class="fname" asp-for="@Model.Employee.Name" type="text" placeholder="Adi">
-            <input type="text" asp-for="@Model.Employee.Surname" placeholder="Soyadi">
-            <input type="text" asp-for="@Model.Employee.Username" placeholder="Istifadeci Adi">
-            <input type="password" asp-for="@Model.Employee.Password" >
-            <input type="email" asp-for="@Model.Employee.EMail" placeholder="example@free.com">
-            <input type="text" asp-for="@Model.Employee.PhoneNumber" placeholder="Elaqe Nomresi">
-            <input type="file" asp-for="@Model.Employee.Image" >
-            <select asp-for="@Model.Employee.SectorId" asp-items="@(new SelectList(Model.Sectors,"SectorId","Name"))">
-            </select>
-            <select asp-for="@Model.Employee.PositionId" asp-items="@(new SelectList(Model.Positions,"PositionId","Name"))">
-            </select>
-        </div>
-        <button type="submit">Submit</button>
-    </form>
 </div>

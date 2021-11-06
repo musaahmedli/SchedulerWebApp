@@ -45,9 +45,5 @@ namespace DataAccessLib.Repositories
             _context.Organizations.Update(organization);
             _context.SaveChanges();
         }
-        public async Task<List<Organization>> ShowDeletedOrganizations()
-        {
-            return await _context.Organizations.IgnoreQueryFilters().Where(m=>m.IsDeleted).ToListAsync();
-        } 
     }
 }

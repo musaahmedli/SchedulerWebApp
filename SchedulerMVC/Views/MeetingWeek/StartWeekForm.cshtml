@@ -1,0 +1,28 @@
+﻿@model EntityLib.MeetingWeek
+
+
+<link rel="stylesheet" href="~/lib/bootstrap" />
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+<h1 class="container">
+    Yeni Həftə
+</h1>
+<form asp-controller="MeetingWeek" asp-action="StartWeek">
+
+    <div class="container">
+        <div>
+            <label style="font-family:Sans-serif;font-size:10px;color:white">
+                Həftənin Başlama Tarixi
+            </label>
+            <input type="datetime-local" asp-for="@Model.StartDate" class="form-control" />
+        </div>
+        <div>
+            <label style="font-family:Sans-serif;font-size:10px;color:white">
+                Həftənin bitmə tarixi
+            </label>
+            <input type="datetime-local" asp-for="@Model.EndDate" class="form-control" />
+        </div>
+        <button type="submit" class="btn btn-secondary">
+            Təsdiq edin
+        </button>
+    </div>
+</form>

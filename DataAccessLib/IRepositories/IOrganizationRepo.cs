@@ -14,6 +14,5 @@ namespace DataAccessLib.IRepositories
         Task<Organization> GetById(int organizationId);
         Task Delete(int organizationId);
         void Update(Organization organization);
-        Task<List<Organization>> ShowDeletedOrganizations();
     }
 }

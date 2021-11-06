@@ -19,7 +19,7 @@ namespace DataAccessLib.Repositories
         public async Task Add(Employee employee)
         {
             employee.Password = Hasher.HashPassword(employee.Password);
-            if (employee.Image != null)
+            if (employee.Image == null)
             {
                 _context.Employees.Add(employee);
                 _context.Entry(employee).Property("ImagePath").IsModified = false;
@@ -33,7 +33,7 @@ namespace DataAccessLib.Repositories
 
         public async Task Delete(int employeeId)
         {
-            Employee employee = await _context.Employees.FindAsync();
+            Employee employee = await _context.Employees.FindAsync(employeeId);
             employee.IsDeleted = true;
             _context.Employees.Update(employee);
             _context.SaveChanges();
@@ -41,27 +41,35 @@ namespace DataAccessLib.Repositories
 
         public async Task<List<Employee>> Get()
         {
-            return await _context.Employees.Include(m => m.Position).Include(m => m.Sector).ThenInclude(m=>m.Department).ThenInclude(m=>m.Organization).ToListAsync();
+            return await _context.Employees.ToListAsync();
         }
 
         public async Task<Employee> GetById(int employeeId)
         {
-            return await _context.Employees.Include(m => m.Position).Include(m => m.Sector).ThenInclude(m => m.Department).ThenInclude(m => m.Organization).FirstOrDefaultAsync(m=>m.EmployeeId==employeeId);
+            return await _context.Employees.FirstOrDefaultAsync(m=>m.EmployeeId==employeeId);
         }
 
-        public async Task<List<Employee>> GetDeleteds()
+        public async Task<List<Employee>> GetEmployeesOfMeeting(int meetingId)
         {
-            return await _context.Employees.IgnoreQueryFilters().Where(m=>m.IsDeleted).Include(m => m.Position).Include(m => m.Sector).ToListAsync();
+            List<Employee> employees = new List<Employee>();
+            List<EmployeeMeeting> employeeMeetings =await  _context.EmployeeMeetings.Where(m => m.MeetingId == meetingId).ToListAsync();
+            foreach (var item in employeeMeetings)
+            {
+                employees.Add(item.Employee);
+            }
+
+            return employees;
         }
 
-        public async Task<bool> Login(Employee employee)
+        public async Task<Employee> Login(Employee employee)
         {
             employee.Password = Hasher.HashPassword(employee.Password);
-            if(await _context.Employees.FirstOrDefaultAsync(m=>m.Username==employee.Username && m.Password == employee.Password) ==null)
+            Employee employeeLogin = await _context.Employees.FirstOrDefaultAsync(m => m.Username == employee.Username && m.Password == employee.Password);
+            if ( employeeLogin==null)
             {
-                return false;
+                return null;
             }
-            return true;
+            return employeeLogin ;
             
         }
 

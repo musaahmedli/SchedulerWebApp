@@ -14,6 +14,5 @@ namespace BusinessLogicLib.IServices
         Task<List<ProjectToListDTO>> Get();
         Task<ProjectToListDTO> GetById(int projectId);
         void Update(ProjectToUpdateDTO project);
-        Task<List<ProjectToListDTO>> GetDeleteds();
     }
 }

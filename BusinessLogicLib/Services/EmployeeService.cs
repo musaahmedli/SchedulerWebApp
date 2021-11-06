@@ -47,19 +47,19 @@ namespace BusinessLogicLib.Services
             _repo.Update(_mapper.Map<Employee>(employee));
         }
 
-        public async Task<List<EmployeeToListDTO>> GetDeleteds()
+        public async Task<EmployeeToListDTO> Login(EmployeeToListDTO employee)
         {
-            return _mapper.Map<List<EmployeeToListDTO>>(await _repo.GetDeleteds());
+            EmployeeToListDTO employeeToListDTO = _mapper.Map<EmployeeToListDTO>(await _repo.Login(_mapper.Map<Employee>(employee)));
+            if (employeeToListDTO==null)
+            {
+                return null;
+            }
+            return employeeToListDTO;
         }
 
-        public async Task<bool> Login(EmployeeToListDTO employee)
+        public async Task<List<EmployeeToListDTO>> GetEmployeesOfMeeting(int meetingId)
         {
-
-            if (await _repo.Login(_mapper.Map<Employee>(employee)))
-            {
-                return true;
-            }
-            return false;
+            return _mapper.Map<List<EmployeeToListDTO>>(await _repo.GetEmployeesOfMeeting(meetingId));
         }
     }
 }

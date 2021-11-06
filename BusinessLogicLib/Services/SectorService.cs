@@ -40,9 +40,9 @@ namespace BusinessLogicLib.Services
             return _mapper.Map<SectorToListDTO>(await _repo.GetById(sectorId));
         }
 
-        public async Task<List<SectorToListDTO>> GetDeleteds()
+        public async Task<List<SectorToListDTO>> GetSectorByDepartment(int departmentId)
         {
-            return _mapper.Map<List<SectorToListDTO>>(await _repo.ShowDeletedOrganizations());
+            return _mapper.Map<List<SectorToListDTO>>(await _repo.GetSectorsByDepartment(departmentId));
         }
 
         public void Update(SectorToUpdateDTO sector)

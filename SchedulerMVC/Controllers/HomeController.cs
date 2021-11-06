@@ -2,12 +2,11 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
-using SchedulerMVC.Models;
+using SchedulerMVC.Models.EmployeeModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Newtonsoft.Json;
 
 namespace SchedulerMVC.Controllers
 {
@@ -25,17 +24,34 @@ namespace SchedulerMVC.Controllers
         public IActionResult LoginForm()
         {
             EmployeeLoginViewModel employeeLoginViewModel = new EmployeeLoginViewModel();
-            HttpContext.Session.SetString("IsAdmin",JsonConvert.SerializeObject(employeeLoginViewModel.Employee.IsAdmin));
+            
             return View(employeeLoginViewModel);
         }
         public async Task<IActionResult> Login(EmployeeLoginViewModel employeeLoginViewModel)
         {
-            if (await _service.Login(employeeLoginViewModel.Employee))
+            EmployeeLoginViewModel loginViewModel = new EmployeeLoginViewModel();
+
+            loginViewModel.Employee = await _service.Login(employeeLoginViewModel.Employee);
+
+            if (loginViewModel.Employee != null)
             {
-                return View("MainPage");
+                HttpContext.Session.SetString("EmployeeName", JsonConvert.SerializeObject(loginViewModel.Employee.Name));
+                HttpContext.Session.SetString("EmployeeSurname", JsonConvert.SerializeObject(loginViewModel.Employee.Surname));
+                HttpContext.Session.SetString("Auth",JsonConvert.SerializeObject(loginViewModel.Employee.IsAdmin));
+
+                HttpContext.Session.SetInt32("Id", loginViewModel.Employee.EmployeeId);
+                
+                return RedirectToAction("Index","Organization");
             }
-            return View("LoginForm");
+            return RedirectToAction("LoginForm");
         }
 
+        public IActionResult Logout()
+        {
+            HttpContext.Session = null;
+
+            return RedirectToAction("LoginForm");
+        }
+        
     }
 }

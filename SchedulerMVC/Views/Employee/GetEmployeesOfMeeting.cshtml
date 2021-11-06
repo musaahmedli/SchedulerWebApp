@@ -1,0 +1,79 @@
+﻿@model SchedulerMVC.Models.EmployeeModels.EmployeeViewModel
+
+
+<link rel="stylesheet" href="~/lib/bootstrap" />
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+<link rel="stylesheet" href="~/CardTemplate/card.css" />
+
+
+
+
+@foreach (var item in Model.Employees)
+{
+    <div class="card float-left" style="width: 300px;height:700px">
+        <img class="card-img-top" src="~/images/@item.ImagePath" alt="@item.Name @item.Surname" style="max-width:300px;max-height:300px">
+        <div class="card-body">
+            <h5 class="card-title">@item.Name @item.Surname</h5>
+            @if (item.Sector != null)
+            {
+                <p class="card-text">Sektor: @item.Sector.Name</p>
+
+
+                @if (item.Sector.Department != null)
+                {
+
+                    <p class="card-text">
+                        Şöbə
+                        :@item.Sector.Department.Name
+                    </p>
+
+                    @if (item.Sector.Department.Organization != null)
+                    {
+                        <p class="card-text">
+                            Təşkilat: @item.Sector.Department.Organization.Name
+                        </p>
+                        @if (item.Sector.Department.Organization.ParentOrganization != null)
+                        {
+                            <p class="card-text">
+                                Üst Təşkilat: @item.Sector.Department.Organization.ParentOrganization.Name
+                            </p>
+                        }
+                        else
+                        {
+                            <p class="card-text">
+                                Üst Təşkilat: Yoxdur
+                            </p>
+                        }
+                    }
+                    else
+                    {
+                        <p class="card-text">
+                            Təşkilat:Yoxdur
+                        </p>
+                    }
+                }
+                else
+                {
+                    <p class="card-text">
+                        Şöbə:Yoxdur
+                    </p>
+                }
+
+            }
+            else
+            {
+                <p class="card-text">
+                    Sektor
+                    :Yoxdur
+                </p>
+            }
+        <a asp-controller="Employee" asp-action="Index" class=" btn btn-dark">
+            Bütün İşçilər
+        </a>
+        </div>
+
+    </div>
+}
+<div style="position:fixed;right:2rem;bottom:2rem;">
+    <a href='javascript:history.go(-1)'>Geri</a>
+</div>

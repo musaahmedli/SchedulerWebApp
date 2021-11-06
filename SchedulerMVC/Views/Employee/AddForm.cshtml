@@ -1,6 +1,6 @@
-﻿@model EmployeeToAddViewModel
+﻿@model SchedulerMVC.Models.EmployeeModels.EmployeeToAddViewModel
 
-@{ 
+@{
     Layout = null;
 }
 
@@ -8,6 +8,7 @@
     input[type="file"] {
         display: none;
     }
+
     .custom-file-upload {
         background-color: #072168;
         border: 1px solid #ccc;
@@ -16,7 +17,7 @@
         cursor: pointer;
     }
 </style>
-
+<link rel="stylesheet" href="~/fonts/font.css" />
 <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
 <link rel="stylesheet" href="~/lib/bootstrap" />
 <link rel="stylesheet" href="~/RegisterForm/regForm.css" />
@@ -25,50 +26,84 @@
         <div class="form-holder container">
             <div class="form-content">
                 <div class="form-items">
-                    <h3>Register Employee</h3>
-                    <p>Fill in the data below.</p>
+                    <h3>Qeyd Ol</h3>
+                    <p>
+                        Boşluqları doldurun
+                    </p>
                     <form asp-controller="Employee" asp-action="Add" enctype="multipart/form-data">
 
                         <div class="col-md-12">
-                            <input class="form-control" type="text" asp-for="@Model.Employee.Name" placeholder="Name" required>
+                            <label>Ad</label>
+                            <input class="form-control" type="text" style="margin-top:-6px" asp-for="@Model.Employee.Name" required>
                         </div>
 
                         <div class="col-md-12">
-                            <input class="form-control" type="text" asp-for="@Model.Employee.Surname" placeholder="Surname" required>
+                            <label>Soyad</label>
+                            <input class="form-control" style="margin-top:-6px" type="text" asp-for="@Model.Employee.Surname" required>
                         </div>
 
                         <div class="col-md-12">
-                            <input class="form-control" type="text" asp-for="@Model.Employee.EMail" placeholder="Email" required>
+                            <label>Email</label>
+                            <input class="form-control" style="margin-top:-6px" type="text" asp-for="@Model.Employee.EMail" required>
                         </div>
 
                         <div class="col-md-12">
-                            <input class="form-control" type="text" asp-for="@Model.Employee.Username" placeholder="Username" required>
+                            <label>
+                                İstifadəçi adı
+                            </label>
+                            <input class="form-control" style="margin-top:-6px" type="text" asp-for="@Model.Employee.Username" required>
                         </div>
 
                         <div class="col-md-12">
-                            <input class="form-control " type="password" asp-for="@Model.Employee.Password" placeholder="Password" required>
+                            <label>
+                                parol
+                            </label>
+                            <input class="form-control " style="margin-top:-6px" type="password" asp-for="@Model.Employee.Password" required>
                         </div>
                         <div class="col-md-12">
-                            <input class="form-control" type="text" asp-for="@Model.Employee.PhoneNumber" placeholder="Phone Number" required>
+                            <label>
+                                Telefon nömrəsi
+                            </label>
+                            <input class="form-control" style="margin-top:-6px" type="text" asp-for="@Model.Employee.PhoneNumber" required>
                         </div>
                         <div class="col-md-12 mt-2">
-                            @*<input class="form-control" type="file" asp-for="@Model.Employee.Image" required>*@
-                            <label class="custom-file-upload">
+                            <label class="custom-file-upload" style="margin-top:-6px">
                                 <input type="file" asp-for="@Model.Employee.Image" />
-                                Your Image
+                                Şəkil
                             </label>
                         </div>
 
                         <div class="col-md-12 mt-2">
-                            <select class="form-select" asp-for="@Model.Employee.SectorId" asp-items="@(new SelectList(Model.Sectors,"SectorId","Name"))"></select>
+                            <label>
+                                Təşkilat
+                            </label>
+                            <select class="form-select" id="organizationSelect" style="margin-top:-6px" asp-items="@(new SelectList(Model.Organizations,"OrganizationId","Name"))">
+                            </select>
+                        </div>
+
+                        <div class="col-md-12 mt-2">
+                            <label>
+                                Şöbə
+                            </label>
+                            <select class="form-select" style="margin-top:-6px" id="departmentsSelect"></select>
+                        </div>
+
+                        <div class="col-md-12 mt-2">
+                            <label>
+                                Sektor
+                            </label>
+                            <select class="form-select" id="sectorsSelect" style="margin-top:-6px"></select>
                         </div>
 
                         <div class="col-md-12">
-                            <select class="form-select" asp-for="@Model.Employee.PositionId" asp-items="@(new SelectList(Model.Positions,"PositionId","Name"))"></select>
+                            <label>Vəzifə</label>
+                            <select class="form-select" style="margin-top:-6px" asp-for="@Model.Employee.PositionId" asp-items="@(new SelectList(Model.Positions,"PositionId","Name"))"></select>
                         </div>
 
                         <div class="form-button mt-3">
-                            <button id="submit" type="submit" class="btn btn-secondary">Add</button>
+                            <button id="submit" type="submit" class="btn btn-secondary">
+                                Təsdiq edin
+                            </button>
                         </div>
                     </form>
                 </div>
@@ -76,3 +111,69 @@
         </div>
     </div>
 </div>
+
+
+<script>
+    const organizationSelect = document.getElementById("organizationSelect")
+    const departmentsSelect = document.getElementById('departmentsSelect')
+    const sectorsSelect = document.getElementById('sectorsSelect')
+
+
+    organizationSelect.addEventListener('change', (e) => selectOrganization(e))
+    departmentsSelect.addEventListener('change', (e) => selectDepartments(e))
+
+
+    function selectOrganization(e) {
+        departmentsSelect.options.length = 0
+        sectorsSelect.options.length = 0
+        const sel = e.target;
+        const selectedOrganizationId = +sel.options[sel.selectedIndex].value
+        const organizationId = parseInt(selectedOrganizationId)
+        console.log(organizationId)
+
+        fetch(`/Employee/GetDepartmentsByOrganization?organizationId=${organizationId}`, {
+        }).then(res => res.json())
+            .then(response => {
+                fillDepartments(response)
+            })
+
+    }
+
+    function fillDepartments(departments) {
+        departments.forEach(department => {
+            const departmentOption = document.createElement('option')
+            departmentOption.value = department.departmentId
+            departmentOption.text = department.name
+
+            departmentsSelect.append(departmentOption)
+        })
+    }
+
+    function selectDepartments(e) {
+        console.log("heyyyy")
+        sectorsSelect.options.length = 0
+        const sel = e.target;
+        const selectedDepartmentId = +sel.options[sel.selectedIndex].value
+        const departmentId = parseInt(selectedDepartmentId)
+        console.log(departmentId)
+
+        fetch(`/Employee/GetSectorsByDepartment?departmentId=${departmentId}`, {
+        }).then(res => res.json())
+            .then(response => {
+                console.log('sectors: ', response)
+                fillSector(response)
+            })
+    }
+
+    function fillSector(sectors) {
+        sectors.forEach(sector => {
+            const sectorOption = document.createElement('option')
+            sectorOption.value = sector.sectorId
+            sectorOption.text = sector.name
+
+            sectorsSelect.append(sectorOption)
+        })
+    }
+    //http://localhost:21255/Employee/GetSectorsByDepartment
+
+</script>

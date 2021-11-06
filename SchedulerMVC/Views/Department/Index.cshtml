@@ -1,37 +1,52 @@
-﻿@model DepartmentViewModel
+﻿@model SchedulerMVC.Models.DepartmentModels.DepartmentViewModel
 
 <style>
-    .grid-container{
-        display:grid;
-        grid-template-columns:auto auto auto;
+    body {
+        background: #082032;
     }
 </style>
-<div class="grid-container">
+
+<link rel="stylesheet" href="~/lib/bootstrap" />
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+
+<!------ Include the above in your HEAD tag ---------->
+
+
+
+
+
+<div class="container">
+    <div style="width:100%"><h1 class="text-center">Şöbələr</h1></div> 
     @foreach (var item in Model.Departments)
     {
-        <div class="card float-left mr-3" style="width: 18rem;">
-            <div class="card-img-top" style="height:30%"><img class="card-img-top" src="~/css/img/cloud-scheduling.png" alt="Card image cap"></div>
-            <div class="card-body">
-                <h5 class="card-title">@item.Name</h5>
-                @if (@item.Organization== null)
-                {
-                    <p class="card-text">Ust qurum Yoxdur</p>
-                }
-                else
-                {
-                    <p class="card-text">Ust Qurum @item.Organization.Name</p>
-                }
+        <div class="jumbotron" style="background-color: #cf6a87">
+            <h1 class="display-4">@item.Name</h1>
 
-                <div class="btn-group">
-                    <button class="btn btn-warning text-decoration-none">@Html.ActionLink("Update", "UpdateForm", "Department", new { departmentId = item.DepartmentId })</button>
-                    <button class="btn btn-warning text-decoration-none">@Html.ActionLink("Delete", "Delete", "Department", new { departmentId = item.DepartmentId })</button>
-                </div>
-            </div>
+            @if (item.Organization == null)
+            {
+                <p class="lead">
+                    Silinmiş Təşkilat
+                </p>
+            }
+            else
+            {
+                <p class="lead">@item.Organization.Name</p>
+            }
+            <hr class="my-4">
+            <p></p>
+            @if (Model.Authorization == "true")
+            {
+                <button class="btn btn-lg btn-light" >@Html.ActionLink("Yeniləyin", "UpdateForm", "Department", new { departmentId = item.DepartmentId })</button>
+                <button class="btn btn-light btn-lg" >@Html.ActionLink("Silin", "Delete", "Department", new { departmentId = item.DepartmentId })</button>
+            }
         </div>
     }
+
+    @if (Model.Authorization == "true")
+    {
+        <a class="btn btn-info" asp-controller="Department" asp-action="AddForm" role="button">
+            Şöbə əlavə edin
+        </a>
+    }
 </div>
-<div class="container form-group d-block">
-    <a asp-controller="Department" asp-action="AddForm" class=" btn btn-dark text-decoration-none">
-        Add Your Department
-    </a>
-</div>
+

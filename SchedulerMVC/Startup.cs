@@ -37,20 +37,34 @@ namespace SchedulerMVC
             });
             services.AddScoped<IOrganizationRepo, OrganizationRepo>();
             services.AddScoped<IOrganizationService, OrganizationService>();
+
             services.AddScoped<IDepartmentRepo, DepartmentRepo>();
             services.AddScoped<IDepartmentService, DepartmentService>();
+
             services.AddScoped<ISectorRepo, SectorRepo>();
             services.AddScoped<ISectorService, SectorService>();
+
             services.AddScoped<IPositionRepo, PositionRepo>();
             services.AddScoped<IPositionService, PositionService>();
+
             services.AddScoped<IEmployeeRepo, EmployeeRepo>();
             services.AddScoped<IEmployeeService, EmployeeService>();
+
             services.AddScoped<IProjectRepo, ProjectRepo>();
             services.AddScoped<IProjectService, ProjectService>();
+
+            services.AddScoped<IMeetingRepo ,MeetingRepo>();
+            services.AddScoped<IMeetingService, MeetingService>();
+
+            services.AddScoped<IMeetingWeekRepo, MeetingWeekRepo>();
+            services.AddScoped<IMeetingWeekService, MeetingWeekService>();
+
+            services.AddScoped<IMeetingDaysRepo, MeetinDaysRepo>();
+            services.AddScoped<IMeetingDaysService, MeetingDaysService>();
+
             services.AddAutoMapper(typeof(AppAutoMapper));
             services.AddMemoryCache();
             services.AddSession();
-            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -79,7 +93,7 @@ namespace SchedulerMVC
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Project}/{action=Index}/{id?}");
+                    pattern: "{controller=Home}/{action=LoginForm}/{id?}");
             });
         }
     }

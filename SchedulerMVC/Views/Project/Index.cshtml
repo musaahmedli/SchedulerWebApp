@@ -1,62 +1,38 @@
-﻿@model SchedulerMVC.Models.ProjectViewModel.ProjectViewModel
-
-@{ 
-    Layout = null;
-}
+﻿@model SchedulerMVC.Models.ProjectModels.ProjectViewModel
 
 
-<link rel="stylesheet" href="~/tableTemplate/table.css" />
-<link rel="stylesheet" href="~/lib/bootstrap" />
-<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-<div class="container text-center text-white">
-    <div class="row pt-5">
-        <div class="col-lg-8 mx-auto">
-            <h1 class="display-4">Projects</h1>
-            <p class="font-italic mb-0">Currnents</p>
-            <p class="font-italic">
-                Snippet by
-                <a class="text-white" href="https://bootstrapious.com/snippets">
-                    <u>Musa Ahmadov</u>
-                </a>
-            </p>
-        </div>
-    </div>
-</div>
+<div class="d-block"><h1 class="text-center">Layihələr</h1></div>
+<div class="accordion" id="accordionExample">
+    @foreach (var item in Model.Projects)
+    {
+        <div class="card">
+            <div class="card-header" style="background-color: #FFEAEE" id="headingOne">
+                <h2 class="mb-0">
+                    <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        @item.Name
+                    </button>
+                </h2>
+            </div>
 
-<div class="container py-5">
-    <div class="row">
-        <div class="col-lg-7 mx-auto">
-            <div class="card rounded-0 border-0 shadow">
-                <div class="card-body p-5">
-
-                    <!--  Bootstrap table-->
-                    <div class="table-responsive">
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th scope="col">Name</th>
-                                    <th scope="col">Description</th>
-                                    <th scope="col">Attendances</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach(var item in Model.Projects)
-                                    {
-                                        <tr>
-                                            <td>@item.Name</td>
-                                            <td>@item.Description</td>
-                                            <td>@item.Attendances</td>
-                                            <td><button class="btn btn-outline-primary">@Html.ActionLink("Update","UpdateForm","Project",new { projectId=item.ProjectId})</button></td>
-                                            <td><button class="btn btn-outline-primary">@Html.ActionLink("Delete", "Delete","Project",new { projectId=item.ProjectId})</button></td>
-                                        </tr>
-                                    }
-                            </tbody>
-                        </table>
-                    </div>
-
-                    
+            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                <div class="card-body">
+                    <p>@item.Description</p>
+                    <p>@item.Attendances</p>
+                    @if (Model.Authorization == "true")
+                    {
+                        <button class="btn " style="background-color: #FFEAEE">@Html.ActionLink("Yeniləyin", "UpdateForm", "Project", new { projectId = item.ProjectId })</button>
+                        <button class="btn " style="background-color: #FFEAEE">@Html.ActionLink("Silin", "Delete", "Project", new { projectId = item.ProjectId })</button>
+                    }
                 </div>
             </div>
         </div>
-    </div>
+    }
 </div>
+@if (Model.Authorization == "true")
+{
+    <div class="container form-group d-block">
+        <a asp-controller="Project" asp-action="AddForm" class=" btn " style="background-color: #FFEAEE">
+            Yeni Layihə əlavə edin
+        </a>
+    </div>
+}

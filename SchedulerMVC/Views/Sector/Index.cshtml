@@ -1,37 +1,61 @@
-﻿@model SectorViewModel
-
-<div class="container form-group d-block overflow-auto flex-md-row">
+﻿@model SchedulerMVC.Models.SectorModels.SectorViewModel
+<div class="container mt-5">
+    <h1 class="text-center">Sektorlar</h1>
     @foreach (var item in Model.sectors)
-    {
-        <div class="card float-left mr-3" style="width: 18rem;">
-            <img class="card-img-top" src="~/css/img/cloud-scheduling.png" alt="Card image cap">
-            <div class="card-body">
-                <h5 class="card-title">@item.Name</h5>
-                @if (@item.Department == null)
+    {<div class="jumbotron">
+            <h1 class="display-4">@item.Name</h1>
+            @if (item.Department == null)
+            {
+                <p class="lead">
+                    Heç bir şöbəyə tabe olmur.
+                </p>
+            }
+            else
+            {
+                <p class="lead">Şöbə: @item.Department.Name</p>
+                @if (item.Department.Organization == null)
                 {
-                    <p class="card-text">Departmente bagli deyil </p>
-                }
-                else if (item.Department.Organization==null)
-                {
-                    <p class="card-text">@item.Department.Name</p>
-                    <p class="card-text">Organizasiyaya bagli deyil</p>
+                    <hr class="my-4">
+                    <p>
+                        Heç bir təşkilata tabe olmur.
+                    </p>
                 }
                 else
                 {
-                    <p class="card-text">Ust Qurum @item.Department.Name</p>
-                    <p class="card-text">Ust Qurum @item.Department.Organization.Name</p>
+                    <hr class="my-4">
+                    <p>Təşkilat: @item.Department.Organization.Name</p>
+                    @if (item.Department.Organization.ParentOrganization == null)
+                    {
+                        <hr class="my-4">
+                        <p>
+                            Heç bir üst təşkilata tabe olmur.
+                        </p>
+                    }
+                    else
+                    {
+                        <hr class="my-4">
+                        <p>Üst təşkilat:@item.Department.Organization.ParentOrganization.Name</p>
+                    }
                 }
+            }
 
-                <div class="btn-group">
-                    <button class="btn btn-warning text-decoration-none">@Html.ActionLink("Update", "UpdateForm", "Sector", new { sectorId = item.SectorId })</button>
-                    <button class="btn btn-warning text-decoration-none">@Html.ActionLink("Delete", "Delete", "Sector", new { sectorId = item.SectorId})</button>
-                </div>
-            </div>
+            <p class="lead">
+                @if (Model.Authorization == "true")
+                {<button class="btn btn-info">@Html.ActionLink("Yeniləyin", "UpdateForm", "Sector", new { sectorId = item.SectorId })</button>
+                <button class="btn btn-info">@Html.ActionLink("Silin", "Delete", "Sector", new { sectorId = item.SectorId })</button>}
+
+            </p>
         </div>
     }
+    @if (Model.Authorization == "true")
+    {
+
+        <div class="container d-block ">
+            <a asp-controller="Sector" asp-action="AddForm" class=" btn btn-dark text-decoration-none">
+                Sektor əlavə edin
+            </a>
+        </div>
+
+    }
 </div>
-<div class="container d-block ">
-    <a asp-controller="Sector" asp-action="AddForm" class=" btn btn-dark text-decoration-none">
-        Add Your Sector
-    </a>
-</div>
+

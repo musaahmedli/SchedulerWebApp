@@ -31,7 +31,7 @@ namespace DataAccessLib.Repositories
 
         public async Task<List<Department>> Get()
         {
-            return await _context.Departments.Include(m=>m.Organization).ToListAsync();
+            return await _context.Departments.ToListAsync();
         }
 
         public async Task<Department> GetById(int departmentId)
@@ -47,9 +47,10 @@ namespace DataAccessLib.Repositories
             _context.SaveChanges();
         }
 
-        public async Task<List<Department>> GetDeleteds()
+        public async Task<List<Department>> GetDepartmentsByOrganizationId(int organizationId)
         {
-            return await _context.Departments.IgnoreQueryFilters().Where(m=>m.IsDeleted).ToListAsync();
+            List<Department> departments =  await _context.Departments.Where(dep => dep.OrganizationId == organizationId).ToListAsync();
+            return departments;
         }
     }
 }

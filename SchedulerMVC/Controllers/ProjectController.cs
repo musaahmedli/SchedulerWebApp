@@ -1,9 +1,9 @@
 ﻿using AutoMapper;
 using BusinessLogicLib.IServices;
 using DTO.ProjectDTOs;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using SchedulerMVC.Models.ProjectModels;
-using SchedulerMVC.Models.ProjectViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,6 +23,7 @@ namespace SchedulerMVC.Controllers
         public async Task<IActionResult> Index()
         {
             ProjectViewModel projectViewModel = new ProjectViewModel();
+            projectViewModel.Authorization = HttpContext.Session.GetString("Auth");
             projectViewModel.Projects = await _service.Get();
             return View(projectViewModel);
         }

@@ -1,0 +1,56 @@
+﻿@model SchedulerMVC.Models.MeetingModels.MeetingToAddViewModel
+
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+<link rel="stylesheet" href="~/lib/bootstrap" />
+<link rel="stylesheet" href="~/RegisterForm/regForm.css" />
+<link rel="stylesheet" href="~/fonts/font.css" />
+
+<div class="form-body">
+    <div class="row">
+        <div class="form-holder container">
+            <div class="form-content">
+                <div class="form-items">
+                    <h3>Görüş əlavə edin</h3>
+                    <p>Boşluqları doldurun</p>
+                    <form asp-controller="Meeting" asp-action="Add">
+
+                        <div class="col-md-12 mb-1 d-none">
+                            <input class="form-control" type="text" asp-for="@Model.meetingToAddDTO.MeetingDaysId" required>
+                        </div>
+
+                        <div class="col-md-12 mb-1">
+                            <label>Mövzu</label>
+                            <input class="form-control" type="text" asp-for="@Model.meetingToAddDTO.Subject" required>
+                        </div>
+
+                        <div class="col-md-12 mb-1">
+                            <label>Başlama vaxtı</label>
+                            <input class="form-control" type="time" asp-for="@Model.meetingToAddDTO.StartTime" required>
+                        </div>
+
+                        <div class="col-md-12 mb-1">
+                            <label>Bitmə vaxtı</label>
+                            <input class="form-control" type="time" asp-for="@Model.meetingToAddDTO.EndTime" required>
+                        </div>
+
+                        <div class="col-md-12 mb-1">
+                            <label>Layihə</label>
+                            <select class="form-select sel" asp-for="@Model.meetingToAddDTO.ProjectId" asp-items="@(new SelectList(Model.Projects,"ProjectId","Name"))"></select>
+                        </div>
+
+                        <div class="col-md-12 mb-1">
+                            <label>İşçilər</label>
+                            <select asp-for="@Model.meetingToAddDTO.EmployeeIdList" asp-items="@(new MultiSelectList(Model.Employees,"EmployeeId","Name"))"></select>
+                        </div>
+
+                        <div class="form-button mt-3">
+                            <button id="submit" type="submit" class="btn btn-secondary">
+                                Təsdiq edin
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

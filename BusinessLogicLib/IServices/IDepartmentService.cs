@@ -14,6 +14,6 @@ namespace BusinessLogicLib.IServices
         Task<DepartmentToListDTO> GetById(int departmentId);
         Task Delete(int departmentId);
         void Update(DepartmentToUpdateDTO department);
-        Task<List<DepartmentToListDTO>> GetDeleteds();
+        Task<List<DepartmentToListDTO>> GetDepartmentsByOrganization(int organizationId);
     }
 }

@@ -1,0 +1,15 @@
+C:\Users\MonUser12\source\repos\SchedulerMVC\DTO\bin\Release\net5.0\DTO.deps.json
+C:\Users\MonUser12\source\repos\SchedulerMVC\DTO\bin\Release\net5.0\DTO.dll
+C:\Users\MonUser12\source\repos\SchedulerMVC\DTO\bin\Release\net5.0\ref\DTO.dll
+C:\Users\MonUser12\source\repos\SchedulerMVC\DTO\bin\Release\net5.0\DTO.pdb
+C:\Users\MonUser12\source\repos\SchedulerMVC\DTO\bin\Release\net5.0\EntityLib.dll
+C:\Users\MonUser12\source\repos\SchedulerMVC\DTO\bin\Release\net5.0\EntityLib.pdb
+C:\Users\MonUser12\source\repos\SchedulerMVC\DTO\obj\Release\net5.0\DTO.csproj.AssemblyReference.cache
+C:\Users\MonUser12\source\repos\SchedulerMVC\DTO\obj\Release\net5.0\DTO.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\MonUser12\source\repos\SchedulerMVC\DTO\obj\Release\net5.0\DTO.AssemblyInfoInputs.cache
+C:\Users\MonUser12\source\repos\SchedulerMVC\DTO\obj\Release\net5.0\DTO.AssemblyInfo.cs
+C:\Users\MonUser12\source\repos\SchedulerMVC\DTO\obj\Release\net5.0\DTO.csproj.CoreCompileInputs.cache
+C:\Users\MonUser12\source\repos\SchedulerMVC\DTO\obj\Release\net5.0\DTO.csproj.CopyComplete
+C:\Users\MonUser12\source\repos\SchedulerMVC\DTO\obj\Release\net5.0\DTO.dll
+C:\Users\MonUser12\source\repos\SchedulerMVC\DTO\obj\Release\net5.0\ref\DTO.dll
+C:\Users\MonUser12\source\repos\SchedulerMVC\DTO\obj\Release\net5.0\DTO.pdb

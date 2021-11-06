@@ -1,5 +1,5 @@
 ﻿
-@model EmployeeLoginViewModel
+@model SchedulerMVC.Models.EmployeeModels.EmployeeLoginViewModel
 @{
     Layout = null;
 }
@@ -17,7 +17,9 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-6 text-center mb-5">
-                <h2 class="heading-section">Login #07</h2>
+                <h2 class="heading-section">
+                    Daxil ol
+                </h2>
             </div>
         </div>
         <div class="row justify-content-center">
@@ -25,45 +27,37 @@
                 <div class="wrap d-md-flex">
                     <div class="text-wrap p-4 p-lg-5 text-center d-flex align-items-center order-md-last">
                         <div class="text w-100">
-                            <h2>Xos Gelmissiniz</h2>
-                            <p>Hesabin Yoxdur?</p>
-                            <a href="#" class="btn btn-white btn-outline-white">Qeyd Ol</a>
+                            <h2>
+                                Xoş gəldiniz!
+                            </h2>
+                            <p>Hesabınız yoxdur?</p>
+                            <a asp-controller="Employee" asp-action="AddForm" class="btn btn-white btn-outline-white">Qeydiyyatdan keç</a>
                         </div>
                     </div>
                     <div class="login-wrap p-4 p-lg-5">
                         <div class="d-flex">
                             <div class="w-100">
-                                <h3 class="mb-4">Daxil Ol</h3>
+                                <h3 class="mb-4">Daxil ol</h3>
                             </div>
                             <div class="w-100">
-                                <p class="social-media d-flex justify-content-end">
-                                    <a href="#" class="social-icon d-flex align-items-center justify-content-center"><span class="fa fa-facebook"></span></a>
-                                    <a href="#" class="social-icon d-flex align-items-center justify-content-center"><span class="fa fa-twitter"></span></a>
-                                </p>
                             </div>
                         </div>
                         <form asp-controller="Home" asp-action="Login" class="signin-form">
                             <div class="form-group mb-3">
-                                <label class="label" for="name"></label>
-                                <input type="text" asp-for="@Model.Employee.Username" class="form-control" placeholder="Istifadeci Adi" required>
+                                <label class="label" for="name">
+                                    İstifadəçi adı
+                                </label>
+                                <input type="text" asp-for="@Model.Employee.Username" class="form-control" required>
                             </div>
                             <div class="form-group mb-3">
-                                <label class="label" for="password"></label>
-                                <input type="password" asp-for="@Model.Employee.Password" class="form-control" placeholder="Sifre" required>
+                                <label class="label" for="password">Şifrə</label>
+                                <input type="password" asp-for="@Model.Employee.Password" class="form-control"  required>
                             </div>
                             <div class="form-group">
-                                <button type="submit" class="form-control btn btn-primary submit px-3">Daxil Ol</button>
+                                <button type="submit" class="form-control btn btn-primary submit px-3">Daxil ol</button>
                             </div>
                             <div class="form-group d-md-flex">
                                 <div class="w-50 text-left">
-                                    <label class="checkbox-wrap checkbox-primary mb-0">
-                                        Meni Xatirla
-                                        <input type="checkbox" checked>
-                                        <span class="checkmark"></span>
-                                    </label>
-                                </div>
-                                <div class="w-50 text-md-right">
-                                    <a href="#">Sifremi Unutdum</a>
                                 </div>
                             </div>
                         </form>

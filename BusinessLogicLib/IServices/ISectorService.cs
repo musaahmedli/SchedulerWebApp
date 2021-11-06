@@ -14,6 +14,6 @@ namespace BusinessLogicLib.IServices
         Task<SectorToListDTO> GetById(int sectorId);
         Task Delete(int sectorId);
         void Update(SectorToUpdateDTO sector);
-        Task<List<SectorToListDTO>> GetDeleteds();
+        Task<List<SectorToListDTO>> GetSectorByDepartment(int departmentId);
     }
 }

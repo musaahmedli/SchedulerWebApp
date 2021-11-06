@@ -1,0 +1,83 @@
+﻿@model SchedulerMVC.Models.MeetingWeekModels.MeetingWeekViewModel
+<style>
+    td {
+        text-align: center;
+        color: aliceblue;
+    }
+
+    th {
+        text-align: center;
+        color: aliceblue;
+    }
+
+    .btnneon {
+        border: none;
+        color: #090909;
+        padding: 0.7em 1.7em;
+        font-size: 18px;
+        border-radius: 0.5em;
+        background: #e8e8e8;
+        border: 1px solid #e8e8e8;
+        transition: all .3s;
+        box-shadow: 6px 6px 12px #c5c5c5, -6px -6px 12px #ffffff;
+    }
+
+        .btnneon:hover {
+            border: 1px solid white;
+        }
+
+        .btnneon:active {
+            box-shadow: 4px 4px 12px #c5c5c5, -4px -4px 12px #ffffff;
+        }
+</style>
+
+<div class="container mb-3">
+    <div class="container"><h2 class=" text-center text-dark">Weekly Schedule</h2></div>
+    <div class="mb-3">
+        @if (Model.Authorization == "true")
+        {
+            <a asp-controller="MeetingWeek" asp-action="StartWeekForm" class="btn btn-dark">Həftə Başlat</a>
+            <a asp-controller="MeetingWeek" asp-action="EndWeek" class="btn btn-dark float-right">Həftəni Sonlandır</a>
+        }
+    </div>
+
+
+</div>
+<div class="mt-3">
+    <table class="table-dark table-hover table-responsive ">
+        <thead>
+            <tr>
+                <th class="col-4">Tarix</th>
+                <th class="col-4">Gün</th>
+                @if (Model.Authorization == "true")
+                {
+                    <th class="col-2">
+                        Görüş əlavə edin
+                    </th>
+                    <th class="col-2">Görüşlər</th>
+                }
+        </thead>
+        <tbody>
+            @if (Model.MeetingWeek != null)
+            {
+                @foreach (var item in Model.MeetingWeek.MeetingDays)
+                {
+                    <tr>
+                        <td class="col-4">@Model.MeetingWeek.StartDate.AddDays(item.DayId - 1).ToString("dd/MM/yyyy")</td>
+                        <td class="col-4">@item.Days.Day</td>
+                        @if (Model.Authorization == "true")
+                        {
+                            <td class="col-4"><button class=" btn btn-light text-decoration-none">@Html.ActionLink("Görüş əlavə edin", "AddForm", "Meeting", new { meetingDaysId = item.MeetingDaysId })</button></td>
+                        }
+                        <td class="col-4"><button class="btn btn-light text-decoration-none">@Html.ActionLink("Görüşlər", "Index", "Meeting", new { meetingDaysId = item.MeetingDaysId, employeeId = Model.EmployeeId })</button></td>
+                    </tr>
+                }
+            }
+
+        </tbody>
+    </table>
+</div>
+
+<div>
+    <a asp-controller="MeetingDays" asp-action="SeeArchive" class="btn btn-dark mt-3">Arxiv</a>
+</div>

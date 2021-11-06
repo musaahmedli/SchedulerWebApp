@@ -2,7 +2,6 @@ C:\Users\MonUser12\source\repos\SchedulerMVC\EntityLib\bin\Debug\net5.0\EntityLi
 C:\Users\MonUser12\source\repos\SchedulerMVC\EntityLib\bin\Debug\net5.0\EntityLib.dll
 C:\Users\MonUser12\source\repos\SchedulerMVC\EntityLib\bin\Debug\net5.0\ref\EntityLib.dll
 C:\Users\MonUser12\source\repos\SchedulerMVC\EntityLib\bin\Debug\net5.0\EntityLib.pdb
-C:\Users\MonUser12\source\repos\SchedulerMVC\EntityLib\obj\Debug\net5.0\EntityLib.csproj.AssemblyReference.cache
 C:\Users\MonUser12\source\repos\SchedulerMVC\EntityLib\obj\Debug\net5.0\EntityLib.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\MonUser12\source\repos\SchedulerMVC\EntityLib\obj\Debug\net5.0\EntityLib.AssemblyInfoInputs.cache
 C:\Users\MonUser12\source\repos\SchedulerMVC\EntityLib\obj\Debug\net5.0\EntityLib.AssemblyInfo.cs
@@ -10,3 +9,15 @@ C:\Users\MonUser12\source\repos\SchedulerMVC\EntityLib\obj\Debug\net5.0\EntityLi
 C:\Users\MonUser12\source\repos\SchedulerMVC\EntityLib\obj\Debug\net5.0\EntityLib.dll
 C:\Users\MonUser12\source\repos\SchedulerMVC\EntityLib\obj\Debug\net5.0\ref\EntityLib.dll
 C:\Users\MonUser12\source\repos\SchedulerMVC\EntityLib\obj\Debug\net5.0\EntityLib.pdb
+C:\Users\adnsu\Desktop\SchedulerMVC\EntityLib\bin\Debug\net5.0\EntityLib.deps.json
+C:\Users\adnsu\Desktop\SchedulerMVC\EntityLib\bin\Debug\net5.0\EntityLib.dll
+C:\Users\adnsu\Desktop\SchedulerMVC\EntityLib\bin\Debug\net5.0\ref\EntityLib.dll
+C:\Users\adnsu\Desktop\SchedulerMVC\EntityLib\bin\Debug\net5.0\EntityLib.pdb
+C:\Users\adnsu\Desktop\SchedulerMVC\EntityLib\obj\Debug\net5.0\EntityLib.csproj.AssemblyReference.cache
+C:\Users\adnsu\Desktop\SchedulerMVC\EntityLib\obj\Debug\net5.0\EntityLib.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\adnsu\Desktop\SchedulerMVC\EntityLib\obj\Debug\net5.0\EntityLib.AssemblyInfoInputs.cache
+C:\Users\adnsu\Desktop\SchedulerMVC\EntityLib\obj\Debug\net5.0\EntityLib.AssemblyInfo.cs
+C:\Users\adnsu\Desktop\SchedulerMVC\EntityLib\obj\Debug\net5.0\EntityLib.csproj.CoreCompileInputs.cache
+C:\Users\adnsu\Desktop\SchedulerMVC\EntityLib\obj\Debug\net5.0\EntityLib.dll
+C:\Users\adnsu\Desktop\SchedulerMVC\EntityLib\obj\Debug\net5.0\ref\EntityLib.dll
+C:\Users\adnsu\Desktop\SchedulerMVC\EntityLib\obj\Debug\net5.0\EntityLib.pdb

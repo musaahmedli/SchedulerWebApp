@@ -14,7 +14,7 @@ namespace BusinessLogicLib.IServices
         Task<EmployeeToListDTO> GetById(int employeeId);
         Task Delete(int employeeId);
         void Update(EmployeeToUpdateDTO employee);
-        Task<List<EmployeeToListDTO>> GetDeleteds();
-        Task<bool> Login(EmployeeToListDTO employee);
+        Task<EmployeeToListDTO> Login(EmployeeToListDTO employee);
+        Task<List<EmployeeToListDTO>> GetEmployeesOfMeeting(int meetingId);
     }
 }

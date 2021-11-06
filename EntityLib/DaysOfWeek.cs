@@ -12,5 +12,7 @@ namespace EntityLib
         [Key]
         public int DayId { get; set; }
         public string Day { get; set; }
+        public virtual List<MeetingDays> MeetingDays { get; set; }
+
     }
 }

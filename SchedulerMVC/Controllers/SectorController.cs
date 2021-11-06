@@ -1,8 +1,9 @@
 ﻿using AutoMapper;
 using BusinessLogicLib.IServices;
 using DTO.SectorDTOs;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using SchedulerMVC.Models;
+using SchedulerMVC.Models.SectorModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,6 +25,7 @@ namespace SchedulerMVC.Controllers
         public async Task<IActionResult> Index()
         {
             SectorViewModel sectorViewModel = new SectorViewModel();
+            sectorViewModel.Authorization = HttpContext.Session.GetString("Auth");
             sectorViewModel.sectors = await _service.Get();
             return View(sectorViewModel);
         }
@@ -44,6 +46,7 @@ namespace SchedulerMVC.Controllers
         {
             SectorToUpdateViewModel sectorToUpdateViewModel = new SectorToUpdateViewModel();
             sectorToUpdateViewModel.sector = _mapper.Map<SectorToUpdateDTO>( await _service.GetById(sectorId));
+            sectorToUpdateViewModel.Departments = await _departmentService.Get();
             return View(sectorToUpdateViewModel);
         }
 

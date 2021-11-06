@@ -1,37 +1,52 @@
 ﻿@model SchedulerMVC.Models.ProjectModels.ProjectToAddViewModel
-@{ 
-    Layout = null;
-}
 <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
 <link rel="stylesheet" href="~/lib/bootstrap" />
 <link rel="stylesheet" href="~/RegisterForm/regForm.css" />
-    <div class="form-body">
-        <div class="row">
-            <div class="form-holder container">
-                <div class="form-content">
-                    <div class="form-items">
-                        <h3>Add Project</h3>
-                        <p>Fill in the data below.</p>
-                        <form asp-controller="Project" asp-action="Add">
+<link rel="stylesheet" href="~/fonts/font.css" />
 
-                            <div class="col-md-12">
-                                <input class="form-control" type="text" asp-for="@Model.Project.Name"  placeholder="Name" required>
-                            </div>
+<div class="form-body">
+    <div class="row">
+        <div class="form-holder container">
+            <div class="form-content">
+                <div class="form-items">
+                    <h3>
+                        Layihə əlavə edin
+                    </h3>
+                    <p>
+                        Aşağıdakı məlumatları doldurun
+                        .
+                    </p>
+                    <form asp-controller="Project" asp-action="Add">
 
-                            <div class="col-md-12">
-                                <input class="form-control" type="text" asp-for="@Model.Project.Description" placeholder="Description" required>
-                            </div>
+                        <div class="col-md-12">
+                            <label>
+                                Layihənin Adı
+                            </label>
+                            <input class="form-control" type="text" asp-for="@Model.Project.Name" required>
+                        </div>
 
-                            <div class="col-md-12">
-                                <input class="form-control" type="text" asp-for="@Model.Project.Attendances" placeholder="Attendances" required>
-                            </div>
+                        <div class="col-md-12">
+                            <label>
+                                Layihənin təsviri
+                            </label>
+                            <input class="form-control" type="text" asp-for="@Model.Project.Description" required>
+                        </div>
 
-                            <div class="form-button mt-3">
-                                <button id="submit" type="submit" class="btn btn-primary">Add</button>
-                            </div>
-                        </form>
-                    </div>
+                        <div class="col-md-12">
+                            <label>
+                                Layihə İştirakçıları
+                            </label>
+                            <input class="form-control" type="text" asp-for="@Model.Project.Attendances" required>
+                        </div>
+
+                        <div class="form-button mt-3">
+                            <button id="submit" type="submit" class="btn btn-primary">
+                                Təsdiq edin
+                            </button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
+</div>

@@ -1,8 +1,9 @@
 ﻿using AutoMapper;
 using BusinessLogicLib.IServices;
 using DTO.OrganizationDTOs;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using SchedulerMVC.Models;
+using SchedulerMVC.Models.OrganizationModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +11,7 @@ using System.Threading.Tasks;
 
 namespace SchedulerMVC.Controllers
 {
+  
     public class OrganizationController : Controller
     {
         private readonly IOrganizationService _service;
@@ -23,7 +25,9 @@ namespace SchedulerMVC.Controllers
         //All Organizations
         public async Task<IActionResult> Index()
         {
+            
             OrganizationViewModel organizationViewModel = new OrganizationViewModel();
+            organizationViewModel.Authorization = HttpContext.Session.GetString("Auth");
             organizationViewModel.Organizations = await _service.Get();
             
             return View(organizationViewModel);
@@ -48,9 +52,9 @@ namespace SchedulerMVC.Controllers
         public async Task<IActionResult> UpdateForm(int organizationId)
         {
             OrganizationToUpdateViewModel organizationToUpdateViewModel = new OrganizationToUpdateViewModel();
-            organizationToUpdateViewModel.Organization = _mapper.Map<OrganizationToUpdateDTO>(await _service.GetById(organizationId));
+            organizationToUpdateViewModel.Organization = _mapper.Map<OrganizationToUpdateDTO>( await _service.GetById( organizationId ));
             organizationToUpdateViewModel.Organizations = await _service.Get();
-            return View(organizationToUpdateViewModel);
+            return View( organizationToUpdateViewModel );
         }
 
         //Updating Organization
@@ -59,11 +63,13 @@ namespace SchedulerMVC.Controllers
             _service.Update(organizationToUpdate.Organization);
             return RedirectToAction("Index");
         }
-        public async Task<IActionResult> Delete(int organizationId)
+        public async Task<IActionResult> Delete( int organizationId )
         {
             await _service.Delete(organizationId);
             return RedirectToAction("Index");
         }
 
+
+        
     }
 }

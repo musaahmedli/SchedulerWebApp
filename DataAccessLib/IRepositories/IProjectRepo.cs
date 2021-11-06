@@ -14,6 +14,5 @@ namespace DataAccessLib.IRepositories
         Task<Project> GetById(int projectId);
         Task Delete(int projectId);
         void Update(Project project);
-        Task<List<Project>> GetDeleteds();
     }
 }

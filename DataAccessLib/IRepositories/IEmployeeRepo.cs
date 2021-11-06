@@ -14,7 +14,7 @@ namespace DataAccessLib.IRepositories
         Task<Employee> GetById(int employeeId);
         Task Delete(int employeeId);
         void Update(Employee employee);
-        Task<List<Employee>> GetDeleteds();
-        Task<bool> Login(Employee employee);
+        Task<Employee> Login(Employee employee);
+        Task<List<Employee>> GetEmployeesOfMeeting(int meetingId);
     }
 }

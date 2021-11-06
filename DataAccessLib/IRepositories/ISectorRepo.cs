@@ -14,6 +14,6 @@ namespace DataAccessLib.IRepositories
         Task<Sector> GetById(int sectorId);
         Task Delete(int sectorId);
         void Update(Sector sectorId);
-        Task<List<Sector>> ShowDeletedOrganizations();
+        Task<List<Sector>> GetSectorsByDepartment(int deparmtentId);
     }
 }
